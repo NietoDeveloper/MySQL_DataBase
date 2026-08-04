@@ -20,8 +20,6 @@ CREATE ROLE IF NOT EXISTS app_admin;
 --    007_triggers_procedures.sql, sin
 CREATE OR REPLACE VIEW v_my_sessions AS
 CREATE OR REPLACE VIEW v_my_notifications AS
-    SELECT * FROM notifications WHERE user_id = current_app_user_id()
-    WITH CASCADED CHECK OPTION;
 
 CREATE OR REPLACE VIEW v_my_settings AS
     SELECT * FROM user_settings WHERE user_id = current_app_user_id()
