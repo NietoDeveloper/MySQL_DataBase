@@ -4,8 +4,7 @@
 -- (MySQL has no native Row-Level Security — see docs/SECURITY.md for
 -- why views + a session variable are the closest equivalent and where
 -- that equivalence breaks down), an append-only audit log, and basic
--- per-account resource limits.
---
+-- per-account resource limi
 -- Run this AFTER 001-008. It assumes the connecting account that runs
 -- migrations is the bootstrap/admin account — the roles created here
 -- are for the APPLICATION to use instead.
