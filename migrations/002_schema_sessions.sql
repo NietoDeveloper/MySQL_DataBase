@@ -1,7 +1,3 @@
 -- =====================================================================
 -- 002_schema_sessions.sql
 -- Auth sessions. The raw refresh token is NEVER stored — only a
--- SHA-256 (or stronger) hash of it, computed at the application layer.
--- A leaked database backup therefore does not leak usable session
--- tokens.
--- =====================================================================
