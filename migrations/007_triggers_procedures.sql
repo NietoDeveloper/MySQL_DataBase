@@ -14,12 +14,6 @@ DELIMITER $$
 END$$
 
 
-CREATE FUNCTION is_account_locked(p_user_id CHAR(36))
-RETURNS BOOLEAN
-DETERMINISTIC
-READS SQL DATA
-BEGIN
-
 -- 2) Soft-delete helper — call instead of DELETE to preserve history.
 CREATE PROCEDURE soft_delete_user(IN p_user_id CHAR(36))
 BEGIN
