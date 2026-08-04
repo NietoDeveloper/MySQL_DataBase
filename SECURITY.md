@@ -128,8 +128,7 @@ equivalent, and what still depends on you / your deployment environment.
 
 - **Row-scoped access via views, not native RLS.** MySQL has no
   Row-Level Security feature. The closest practical equivalent here is
-  _my_noatch the filter. `app_rw` is granted access to the views,
-  **not** the underlying `users` / `sessions` / `notifications` /
+  _my_noatch tnderlying `users` / `sessions` / `notifications` /
   `user_settings` tables directly. Your application must run
   `SET @app_current_user_id = '<uuid>';` at the start of each
   connection/request, before any read or write against those views.
