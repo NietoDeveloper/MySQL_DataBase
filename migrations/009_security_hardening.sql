@@ -8,7 +8,7 @@ should never
 --    connect as the migration/owner account.
 CREATE ROLE IF NOT EXISTS app_rw;
 CREATE ROLE IF NOT EXISTS app_ro;
-CREATE ROLE IF NOT EXISTS app_admin;
+
 
 -- 3) Admin/bad audit triggers to the roles
 --    that legitimately need them.
