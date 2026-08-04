@@ -20,8 +20,7 @@ CREATE ROLE IF NOT EXISTS app_admin;
 
 
 -- audit_log is append-only: app_rw gets SELECT + INSERT only. UPDATE,
--- DELETE, and DROP are never granted tgers, which run with the
--- privileges of their DEFINER (the migration account), not the caller.
+-- DELETE, and DROP are never ghe migration account), not the caller.
 
 
 -- 2) Row-scoped access vpp_user_id(), defined in
