@@ -10,8 +10,7 @@ CREATE TABLE IF NOT EXISTS audit_log (
     id           BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     table_name   VARCHAR(64) NOT NULL,
     record_id    VARCHAR(64) NOT NULL,
-    action       ENUM('INSERT', 'UPDATE', 'DELETE') NOT NULL,
-    old_data     JSON NULL,
+
 
     changed_by   CHAR(36) NULL,
     changed_at   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
