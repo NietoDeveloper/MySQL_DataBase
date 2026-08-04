@@ -194,7 +194,3 @@ equivalent, and what still depends on you / your deployment environment.
 | Statement/idle timeouts per role | `ALTER ROLE ... SET statement_timeout` | No per-role equivalent; enforce at the connection-pool/driver layer instead (see below) |
 
 ## What you still need to do
-
-- **Never commit real credentials.** `.env.example` ships with empty
-  passwords on purpose — generate strong ones (`openssl rand -base64 32`)
-  per environment and keep `.env` out of version control (already in
