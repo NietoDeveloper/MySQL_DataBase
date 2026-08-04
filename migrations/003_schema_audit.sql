@@ -16,6 +16,4 @@ CREATE TABLE IF NOT EXISTS audit_log (
     changed_by   CHAR(36) NULL,
     changed_at   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT fk_audit_log_changed_by
-        FOREIGN KEY (changed_by) REFERENCES users (id) ON DELETE SET NULL
 
