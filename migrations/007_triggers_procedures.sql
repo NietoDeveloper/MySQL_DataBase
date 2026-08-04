@@ -10,14 +10,6 @@ DELIMITER $$
 --    directly in their SELECT — CREATE VIEW rejects it with error 1351.
 --    This tiny wrapper function is the workaround: views call the
 
-
- so the lockout policy lives in one place.
-CREATE PROCEDURE register_failed_login(
-    IN p_user_id CHAR(36),
-    IN p_max_attempts SMALLINT,
-    IN p_lock_minutes INT
-)
-
     WHERE id = p_user_id;
 END$$
 
