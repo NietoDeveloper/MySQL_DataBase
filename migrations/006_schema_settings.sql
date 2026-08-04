@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS app_settings (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS user_settings (
-    user_id     CHAR(36) NOT NULL,
+
     `key`       VARCHAR(128) NOT NULL,
     value       JSON NOT NULL,
     updated_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
