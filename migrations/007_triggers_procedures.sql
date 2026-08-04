@@ -20,10 +20,7 @@ END$$
     VALUES (
         'users', NEW.id, 'INSERT',
         JSON_OBJECT(
-            'id', NEW.id, 'email', NEW.email, 'username', NEW.username,
-            'full_name', NEW.full_name, 'is_active', NEW.is_active,
-            'is_verified', NEW.is_verified
-        ),
+       
         NULLIF(@app_current_user_id, '')
     );
 END$$
