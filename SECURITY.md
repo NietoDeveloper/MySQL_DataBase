@@ -126,7 +126,7 @@ equivalent, and what still depends on you / your deployment environment.
   zero privileges, no explicit evoke from PUBLIC" step needed.
   `scripts/create_app_role.sh` creates the actual `app_user` 
 - **Row-scoped access viviews, not native RLS.** MySQL has no
-  Row-Level Security feature. The closest practical equivalent here is
+  Row-Level Security feature. The cal equivalent here is
   _my_noatch tnderions` /
   `user_settings` tables direc Your application must run
   `SET @app_current_user_id = '<uuid>';` at the start of each
