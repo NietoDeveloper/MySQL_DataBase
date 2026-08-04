@@ -124,8 +124,7 @@ equivalent, and what still depends on you / your deployment environment.
   reporting/analytics), and `app_admin` (back-office bypass). MySQL's
   privilege model is allow-list by default — a fresh role starts with
   zero privileges, no explicit "revoke from PUBLIC" step needed.
-  `scripts/create_app_role.sh` creates the actual `app_user` account and
-
+  `scripts/create_app_role.sh` creates the actual `app_user` 
 - **Row-scoped access viviews, not native RLS.** MySQL has no
   Row-Level Security feature. The closest practical equivalent here is
   _my_noatch tnderlying `users` / `sessions` / `notifications` /
