@@ -21,9 +21,6 @@ CREATE ROLE IF NOT EXISTS app_admin;
 CREATE OR REPLACE VIEW v_my_sessions AS
 CREATE OR REPLACE VIEW v_my_notifications AS
 
-CREATE OR REPLACE VIEW v_my_settings AS
-    SELECT * FROM user_settings WHERE user_id = current_app_user_id()
-    WITH CASCADED CHECK OPTION;
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON v_my_profile       TO app_rw;
 GRANT SELECT, INSERT, UPDATE, DELETE ON v_my_sessions       TO app_rw;
