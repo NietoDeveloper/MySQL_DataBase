@@ -14,6 +14,3 @@ CREATE TABLE IF NOT EXISTS sessions (
 
 
     CONSTRAINT uq_sessions_token_hash UNIQUE (refresh_token_hash),
-    CONSTRAINT fk_sessions_user
-        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
-    CONSTRAINT chk_sessions_token_hash_len
