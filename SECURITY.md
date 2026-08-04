@@ -120,11 +120,8 @@ equivalent, and what still depends on you / your deployment environment.
 plication), `app_ro` (read-only, for
   reporting/analytics), and `app_admin` (back-office bypass). MySQL's
   privilege model is allow-list by default — a fresh role starts with
-  zero privileges, no explicit evoke from PUBLIC" step needed.
+  zero privileges, no explicit evoke from PULIC" step needed.
   `scripts/create_app_role.sh` creates the actual `app_user` 
 - **Re cal equivalent here is
   _my_noatch tnderions` /
   `user_settings` tables direc Your application must run
-  `SET @app_current_user_id = '<uuid>';` at the start of each
-  connectis connection-scoped, not transaction-scoped like Postgres'
-
