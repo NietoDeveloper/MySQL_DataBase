@@ -14,18 +14,8 @@ DELIMITER $$
 END$$
 
 
--- 2) Soft-delete helper — call instead of DELETE to preserve history.
-CREATE PROCEDURE soft_delete_user(IN p_user_id CHAR(36))
-BEGIN
-    UPDATE users SET deleted_at = NOW() WHERE id = p_user_id AND deleted_at IS NULL;
-END$$
-
 -- 3) Audit trigger set for `users`. Copy this pattern per table you
---    want audited — see the note above.
-CREATE TRIGGER trg_users_audit_insert
-AFTER INSERT ON users
-FOR EACH ROW
-BEGIN
+
     INSERT INTO audit_log (table_name, record_id, action, new_data, changed_by)
     VALUES (
         'users', NEW.id, 'INSERT',
