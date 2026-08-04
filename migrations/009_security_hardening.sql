@@ -23,8 +23,7 @@ CREATE ROLE IF NOT EXISTS app_admin;
 
 
 -- audit_log is append-only: app_rw gets SELECT + INSERT only. UPDATE,
--- DELETE, and DROP are never granted to any application role — writes
--- only ever happen through the audit triggers, which run with the
+-- DELETE, and DROP are never granted tgers, which run with the
 -- privileges of their DEFINER (the migration account), not the caller.
 
 
