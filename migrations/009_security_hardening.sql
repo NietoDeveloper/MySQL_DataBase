@@ -6,8 +6,7 @@
 -- that equivalence breaks down), an append-only audit log, and basic
 
 -- =====================================================================
-
--- 1) Least-privilege roles (MySQL 8.0+). Applications should never
+should never
 --    connect as the migration/owner account.
 CREATE ROLE IF NOT EXISTS app_rw;
 CREATE ROLE IF NOT EXISTS app_ro;
@@ -24,9 +23,6 @@ e migration account), not the caller.
 -- 2) Row-scoped access vpp_user_id(), defined in
 --    007_triggers_procedures.sql, sin
 CREATE OR REPLACE VIEW v_my_sessions AS
-    SELECT * FROM sessions WHERE user_id = current_app_user_id()
-    WITH CASCADED CHECK OPTION;
-
 CREATE OR REPLACE VIEW v_my_notifications AS
     SELECT * FROM notifications WHERE user_id = current_app_user_id()
     WITH CASCADED CHECK OPTION;
