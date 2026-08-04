@@ -16,10 +16,6 @@ CREATE ROLE IF NOT EXISTS app_admin;
 
 
 
--- 2) Row-scoped access vpp_user_id(), defined in
---    007_triggers_procedures.sql, sin
-CREATE OR REPLACE VIEW v_my_sessions AS
-CREATE OR REPLACE VIEW v_my_notifications AS
 
 
 GRANT SELECT, INSERT, UPDATE, DELETmy_settings        TO app_rw;
