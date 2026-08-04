@@ -126,8 +126,7 @@ equivalent, and what still depends on you / your deployment environment.
   zero privileges, no explicit "revoke from PUBLIC" step needed.
   `scripts/create_app_role.sh` creates the actual `app_user` account and
   gives it the `app_rw` role. **The application should never connect
-  using the Docker bootstrap/root account** — that account exists only
-  to run migrations.
+
 - **Row-scoped access via views, not native RLS.** MySQL has no
   Row-Level Security feature. The closest practical equivalent here is
   four updatable views — `v_my_profile`, `v_my_sessions`,
