@@ -12,12 +12,6 @@ erDiagram
     USERS ||--o{ ATTACHMENTS : uploads
     USERS ||--o{ AUDIT_LOG : triggers
 
-
-        char36 id PK
-        varchar email
-
-
-
     ROLES {
         smallint id PK
         varchar name
