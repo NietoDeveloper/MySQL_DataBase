@@ -133,7 +133,5 @@ equivalent, and what still depends on you / your deployment environment.
   **Read this carefully: this is weaker than Postres RLS.** A session
   variable is connection-scoped, not transaction-scoped like Postgres'
   `SET LOCAL`, so a pooled connection that forgets to reset the variable
-  between requests can leak context across users. If you use a
-  connection pool, reset (`SET @app_current_user_id = NULL;`) or
-  re-assert it on every checkout, and treat this as a second layer —
+  between requests, and treat this as a second layer —
  `app_rw` — `UPDATE` and `DELETE` are simply never granted to any
