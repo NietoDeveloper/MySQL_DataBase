@@ -15,11 +15,7 @@ BEGIN
         'users_active', OLD.is_active, 'is_verified', OLD.is_verified,
             'deleted_at', OLD.deleted_at
         ),ted_at', NEW.deleted_at
-
-
-    INSERT INTO audit_log (table_name, record_id, action, old_data, changed_by)
-    VALUES (
-        'users', OLD.id, 'DELETE',
+'users', OLD.id, 'DELETE',
         JSON_OBJECT(
             'id', OLD.id, 'email', OLD.email, 'username', OLD.username,
             'full_name', OLD.full_name
