@@ -16,10 +16,7 @@ erDiagram
         char36 id PK
         varchar email
 
-        smallint failed_login_attempts
-        dntil
-        datetime deleted_at
-    }
+
 
     ROLES {
         smallint id PK
