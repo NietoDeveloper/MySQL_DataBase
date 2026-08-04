@@ -17,6 +17,3 @@ CREATE TABLE IF NOT EXISTS sessions (
     CONSTRAINT fk_sessions_user
         FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
     CONSTRAINT chk_sessions_token_hash_len
-        CHECK (CHAR_LENGTH(refresh_token_hash) = 64)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-ATE INDEX idx_sessions_active  ON sessions (user_id, revoked_at);
