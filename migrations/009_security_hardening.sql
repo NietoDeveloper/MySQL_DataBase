@@ -12,12 +12,6 @@ CREATE ROLE IF NOT EXISTS app_rw;
 CREATE ROLE IF NOT EXISTS app_ro;
 CREATE ROLE IF NOT EXISTS app_admin;
 
--- Baseline: no privileges anywhere until explicitly granted below
-
--- app_rw does NOT get direct grants on users / sessions / notifications /
--- user_settings — it must go through the views above, which is what
--- actually enforces the row scoping.
-
 -- 3) Admin/back-office role — the intentional bypass, scoped to its
 --    own role instead of turning row-scoping off globally.
 GRANT SELECT, INSERT, UPDATE, DELETE ON users            TO app_admin;
