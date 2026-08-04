@@ -118,5 +118,3 @@ equivalent, and what still depends on you / your deployment environment.
 
 
 plication), `app_ro` (read-only, for
-  reporting/analytics), and `app_admin` (back-office bypass). MySQL's
-  privilege model is allow-list by default — a fresh role starts with
