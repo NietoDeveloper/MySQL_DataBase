@@ -28,10 +28,7 @@ CREATE ROLE IF NOT EXISTS app_admin;
 -- privileges of their DEFINER (the migration account), not the caller.
 
 
--- 2) Row-scoped access via updatable views + a session variable.
---    The application runs `SET @app_current_user_id = '<uuid>';` once
---    per connection/request, before any read or write (the views read
---    it indirectly through current_app_user_id(), defined in
+-- 2) Row-scoped access vpp_user_id(), defined in
 --    007_triggers_procedures.sql, since MySQL rejects a raw session
 --    variable inside CREATE VIEW). app_rw gets access to the VIEW, not
 --    the base table, for these four tables — so a query that "forgets"
