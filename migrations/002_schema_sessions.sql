@@ -19,7 +19,4 @@ CREATE TABLE IF NOT EXISTS sessions (
     CONSTRAINT chk_sessions_token_hash_len
         CHECK (CHAR_LENGTH(refresh_token_hash) = 64)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-CREATE INDEX idx_sessions_user_id ON sessions (user_id);
-CREATE INDEX idx_sessions_expires ON sessions (expires_at);
-CREATE INDEX idx_sessions_active  ON sessions (user_id, revoked_at);
+ATE INDEX idx_sessions_active  ON sessions (user_id, revoked_at);
