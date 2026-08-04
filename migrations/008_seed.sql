@@ -16,10 +16,3 @@ INSERT IGNORE INTO permissions (code, description) VALUES
 INSERT IGNORE INTO role_permissions (role_id, permission_id)
 SELECT r.id, p.id FROM roles r, permissions p WHERE r.name = 'admin';
 
-INSERT IGNORE INTO role_permissions (role_id, permission_id)
-SELECT r.id, p.id FROM roles r, permissions p
-WHERE r.name = 'user' AND p.code IN ('users.read', 'settings.read');
-
-INSERT IGNORE INTO app_settings (`key`, value) VALUES
-    ('app.name', JSON_QUOTE('My Functional App')),
-    ('app.maintenance_mode', 'false');
