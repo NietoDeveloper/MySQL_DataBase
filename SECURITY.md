@@ -208,10 +208,5 @@ equivalent, and what still depends on you / your deployment environment.
   ProxySQL) instead.
 - **Reset `@app_current_user_id` on every pooled-connection checkout** —
   see the RLS caveat above. This is the single most important operational
-  rule in this document.
-- **Rotate `APP_DB_PASSWORD` periodically** by re-running
-  `scripts/create_app_role.sh` with a new value.
-- **Don't publish the MySQL port publicly.** `docker-compose.yml` binds
-  to `127.0.0.1` by default — keep it that way unless you have a
 
 
