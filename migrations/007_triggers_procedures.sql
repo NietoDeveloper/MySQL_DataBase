@@ -13,24 +13,12 @@ DELIMITER $$
     WHERE id = p_user_id;
 END$$
 
-CREATE PROCEDURE register_successful_login(IN p_user_id CHAR(36))
-BEGIN
-    UPDATE users
-    SET failed_login_attempts = 0,
-        locked_until = NULL,
-        last_login_at = NOW()
-    WHERE id = p_user_id;
-END$$
 
 CREATE FUNCTION is_account_locked(p_user_id CHAR(36))
 RETURNS BOOLEAN
 DETERMINISTIC
 READS SQL DATA
 BEGIN
-    DECLARE v_locked_until DATETIME;
-    SELECT locked_until INTO v_locked_until FROM users WHERE id = p_user_id;
-    RETURN v_locked_until IS NOT NULL AND v_locked_until > NOW();
-END$$
 
 -- 2) Soft-delete helper — call instead of DELETE to preserve history.
 CREATE PROCEDURE soft_delete_user(IN p_user_id CHAR(36))
