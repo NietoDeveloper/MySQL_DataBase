@@ -152,7 +152,4 @@ equivalent, and what still depends on you / your deployment environment.
   between requests can leak context across users. If you use a
   connection pool, reset (`SET @app_current_user_id = NULL;`) or
   re-assert it on every checkout, and treat this as a second layer —
-  the application layer remains the primary access-control boundary,
-  not a replacement for it.
-- **Append-only audit log.** `audit_log` grants `SELECT, INSERT` only to
-  `app_rw` — `UPDATE` and `DELETE` are simply never granted to any
+ `app_rw` — `UPDATE` and `DELETE` are simply never granted to any
