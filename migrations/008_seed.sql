@@ -6,6 +6,3 @@
 INSERT IGNORE INTO roles (name, description) VALUES
     ('admin', 'Full system access'),
     ('user',  'Standard authenticated user');
-
-INSERT IGNORE INTO permissions (code, description) VALUES
-    ('users.read',     'View users'),
