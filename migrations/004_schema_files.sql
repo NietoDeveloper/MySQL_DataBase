@@ -14,7 +14,3 @@ CREATE TABLE IF NOT EXISTS attachments (
     mime_type     VARCHAR(127),
     size_bytes    BIGINT UNSIGNED,
     uploaded_by   CHAR(36) NULL,
-    created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    deleted_at    DATETIME NULL,
-
-CREATE INDEX idx_attachments_owner ON attachments (owner_table, owner_id);
