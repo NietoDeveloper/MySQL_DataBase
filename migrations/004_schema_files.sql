@@ -1,3 +1,1 @@
 -- =====================================================================
--- 004_schema_files.sql
--- Functional polymorphic attachments table — link a file (stored in
