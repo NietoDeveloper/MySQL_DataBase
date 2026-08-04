@@ -11,8 +11,6 @@ CREATE TABLE IF NOT EXISTS sessions (
     user_id            CHAR(36) NOT NULL,
     refresh_token_hash CHAR(64) NOT NULL,   -- hex-encoded SHA-256 = 64 chars
     user_agent         VARCHAR(255),
-    ip_address         VARCHAR(45),          -- IPv4 or IPv6 text form
-    expires_at         DATETIME NOT NULL,
 
 
     CONSTRAINT uq_sessions_token_hash UNIQUE (refresh_token_hash),
