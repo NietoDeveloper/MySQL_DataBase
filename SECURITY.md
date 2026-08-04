@@ -122,4 +122,3 @@ plication), `app_ro` (read-only, for
   privilege model is allow-list by default — a fresh role starts with
   zero privileges, no explicit evoke from PULIC" step needed.
   derions` /
-  `user_settings` tables direc Your application must run
