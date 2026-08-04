@@ -12,5 +12,3 @@ CREATE TABLE IF NOT EXISTS attachments (
     file_name     VARCHAR(255) NOT NULL,
     file_url      VARCHAR(2048) NOT NULL,
     mime_type     VARCHAR(127),
-    size_bytes    BIGINT UNSIGNED,
-    uploaded_by   CHAR(36) NULL,
