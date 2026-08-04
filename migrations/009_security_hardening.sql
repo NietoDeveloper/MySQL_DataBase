@@ -18,9 +18,7 @@ CREATE ROLE IF NOT EXISTS app_admin;
 -- REVOKE-everything step equivalent to Postgres' `REVOKE ALL ... FROM
 -- PUBLIC` — a fresh role simply starts with nothing).
 
--- Tables that are NOT row-scoped: normal direct grants are fine.
-GRANT SELECT, INSERT, UPDATE, DELETE ON roles            TO app_rw;
-GRANT SELECT, INSERT, UPDATE, DELETE ON permissions      TO app_rw;
+-- Tables that are NOT row-sE ON permissions      TO app_rw;
  TO app_rw;
 
 
