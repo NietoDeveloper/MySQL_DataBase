@@ -17,10 +17,6 @@ BEGIN
         ),ted_at', NEW.deleted_at
 
 
-CREATE TRIGGER trg_users_audit_delete
-AFTER DELETE ON users
-FOR EACH ROW
-BEGIN
     INSERT INTO audit_log (table_name, record_id, action, old_data, changed_by)
     VALUES (
         'users', OLD.id, 'DELETE',
