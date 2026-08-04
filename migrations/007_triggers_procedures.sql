@@ -14,15 +14,8 @@ BEGIN
     VALUES (
         'users_active', OLD.is_active, 'is_verified', OLD.is_verified,
             'deleted_at', OLD.deleted_at
-        ),
-        JSON_OBJECT(
-            'email', NEW.email, 'username', NEW.username, 'full_name', NEW.full_name,
-            'is_active', NEW.is_active, 'is_verified', NEW.is_verified,
-            'deleted_at', NEW.deleted_at
-        ),
-        NULLIF(@app_current_user_id, '')
-    );
-END$$
+        ),ted_at', NEW.deleted_at
+
 
 CREATE TRIGGER trg_users_audit_delete
 AFTER DELETE ON users
