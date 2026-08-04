@@ -28,8 +28,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON permissions      TO app_rw;
 -- DELETE, and DROP are never granted to any application role — writes
 -- only ever happen through the audit triggers, which run with the
 -- privileges of their DEFINER (the migration account), not the caller.
-GRANT SELECT, INSERT ON audit_log TO app_rw;
-GRANT SELECT ON audit_log TO app_ro;
+
 
 -- 2) Row-scoped access via updatable views + a session variable.
 --    The application runs `SET @app_current_user_id = '<uuid>';` once
