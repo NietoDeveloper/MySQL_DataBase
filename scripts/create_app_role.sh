@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 # Creates (or rotates the password of) the least-privilege LOGIN account
-# the application should actually connect as — never the bootstrap/admin
-# account used to run migrations. The password is read from an env var,
-# never written into version-controlled SQL, never echoed, and never
-# placed on the command line (which would leak into shell history / `ps`).
+
 set -euo pipefail
 
 : "${MYSQL_HOST:?Set MYSQL_HOST}"
