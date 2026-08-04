@@ -6,10 +6,6 @@
 -- per table, inside each trigger in 007_triggers.sql.
 -- =====================================================================
 
-CREATE TABLE IF NOT EXISTS audit_log (
-    id           BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    table_name   VARCHAR(64) NOT NULL,
-    record_id    VARCHAR(64) NOT NULL,
- NULL DEFAULT CURRENT_TIMESTAMP,
+
 
 
