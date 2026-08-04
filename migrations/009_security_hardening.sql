@@ -27,9 +27,7 @@ CREATE ROLE IF NOT EXISTS app_admin;
 -- 2) Row-scoped access vpp_user_id(), defined in
 --    007_triggers_procedures.sql, since MySQL rejects a raw session
 --    variable inside CREATE VIEW). app_rw gets access to the VIEW, not
---    the base table, for these four tables — so a query that "forgets"
---    to set @app_current_user_id sees nothing (fail-closed) instead of
---    every row.
+--    the base table, for these four tables — so a
 CREATE OR REPLACE VIEW v_my_profile AS
     SELECT * FROM users WHERE id = current_app_user_id()
     WITH CASCADED CHECK OPTION;
