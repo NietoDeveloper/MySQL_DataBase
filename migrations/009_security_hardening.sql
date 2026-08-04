@@ -21,9 +21,7 @@ CREATE ROLE IF NOT EXISTS app_admin;
 -- Tables that are NOT row-scoped: normal direct grants are fine.
 GRANT SELECT, INSERT, UPDATE, DELETE ON roles            TO app_rw;
 GRANT SELECT, INSERT, UPDATE, DELETE ON permissions      TO app_rw;
-GRANT SELECT, INSERT, UPDATE, DELETE ON role_permissions TO app_rw;
-GRANT SELECT, INSERT, UPDATE, DELETE ON user_roles       TO app_rw;
-GRANT SELECT, INSERT, UPDATE, DELETE ON attachments      TO app_rw;
+ TO app_rw;
 
 
 -- audit_log is append-only: app_rw gets SELECT + INSERT only. UPDATE,
