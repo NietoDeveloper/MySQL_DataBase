@@ -12,10 +12,7 @@ FOR EACH ROW
 BEGIN
     INSERT INTO audit_log (table_name, record_id, action, old_data, new_data, changed_by)
     VALUES (
-        'users', NEW.id, 'UPDATE',
-        JSON_OBJECT(
-            'email', OLD.email, 'username', OLD.username, 'full_name', OLD.full_name,
-            'is_active', OLD.is_active, 'is_verified', OLD.is_verified,
+        'users_active', OLD.is_active, 'is_verified', OLD.is_verified,
             'deleted_at', OLD.deleted_at
         ),
         JSON_OBJECT(
