@@ -10,15 +10,6 @@ erDiagram
     USERS ||--o{ NOTIFICATIONS : receives
 
 
-    AUDIT_LOG {
-        bigint id PK
-        varchar table_name
-        varchar record_id
-        enum action
-        json old_data
-        json new_data
-    }
-
     APP_SETTINGS {
         varchar key PK
         json value
