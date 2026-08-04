@@ -122,6 +122,6 @@ plication), `app_ro` (read-only, for
   privilege model is allow-list by default — a fresh role starts with
   zero privileges, no explicit evoke from PULIC" step needed.
   `scripts/create_app_role.sh` creates the actual `app_user` 
-- **Re cal equivalent here is
+- **Re cal equ
   _my_noatch tnderions` /
   `user_settings` tables direc Your application must run
