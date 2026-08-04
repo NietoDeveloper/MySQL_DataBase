@@ -9,12 +9,4 @@ count, not the application role.
 CREATE TRIGGER trg_users_audit_update
 AFTER UPDATE ON users
 FOR EACH ROW
-BEGIN
-    INSERT INTO audit_log (table_name, record_id, action, old_data, new_data, changed_by)
-    VALUES (
-        'users_active', OLD.is_active, 'is_verified', OLD.is_verified,
-            'deleted_at', OLD.deleted_at
-        ),ted_at', NEW.deleted_at
 
-
-DELIMITER ;
