@@ -118,13 +118,6 @@ equivalent, and what still depends on you / your deployment environment.
 
 
 
-# Security Hardening Notes
-
-This schema ships with a set of security defaults baked in. This document
-explains what they are, what's genuinely different from a Postgres
-equivalent, and what still depends on you / your deployment environment.
-
-## What's enforced at the database layer
 
 - **Least-privilege roles.** `009_security_hardening.sql` creates
   `app_rw` (read/write, for the application), `app_ro` (read-only, for
