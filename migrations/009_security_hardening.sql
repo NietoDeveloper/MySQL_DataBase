@@ -22,10 +22,7 @@ CREATE OR REPLACE VIEW v_my_sessions AS
 CREATE OR REPLACE VIEW v_my_notifications AS
 
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON v_my_profile       TO app_rw;
-GRANT SELECT, INSERT, UPDATE, DELETE ON v_my_sessions       TO app_rw;
-GRANT SELECT, INSERT, UPDATE, DELETE ON v_my_notifications  TO app_rw;
-GRANT SELECT, INSERT, UPDATE, DELETE ON v_my_settings        TO app_rw;
+GRANT SELECT, INSERT, UPDATE, DELETmy_settings        TO app_rw;
 GRANT SELECT ON v_my_profile      TO app_ro;
 GRANT SELECT ON v_my_sessions      TO app_ro;
 GRANT SELations TO app_ro;
