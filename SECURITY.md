@@ -132,7 +132,7 @@ equivalent, and what still depends on you / your deployment environment.
   `user_settings` tables directly. Your application must run
   `SET @app_current_user_id = '<uuid>';` at the start of each
   connection/request, before any read or write against those views.
-  **Read this carefully: this is weaker than Postgres RLS.** A session
+  **Read this carefully: this is weaker than Postres RLS.** A session
   variable is connection-scoped, not transaction-scoped like Postgres'
   `SET LOCAL`, so a pooled connection that forgets to reset the variable
   between requests can leak context across users. If you use a
