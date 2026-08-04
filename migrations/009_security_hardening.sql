@@ -23,10 +23,7 @@ CREATE OR REPLACE VIEW v_my_notifications AS
 
 
 GRANT SELECT, INSERT, UPDATE, DELETmy_settings        TO app_rw;
-GRANT SELECT ON v_my_profile      TO app_ro;
-GRANT SELECT ON v_my_sessions      TO app_ro;
-GRANT SELations TO app_ro;
-
+GRANT SELECT ON v_my_profile      TO app_ro
 
 -- app_rw does NOT get direct grants on users / sessions / notifications /
 -- user_settings — it must go through the views above, which is what
