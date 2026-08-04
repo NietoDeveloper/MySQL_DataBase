@@ -4,26 +4,7 @@
 count, not the application role.
 -- =====================================================================
 
-DELIMITER $$
 
--- 0) MySQL views cannot reference a user-defined variable (@var)
---    directly in their SELECT — CREATE VIEW rejects it with error 1351.
---    This tiny wrapper function is the workaround: views call the
-
-    WHERE id = p_user_id;
-END$$
-
-
--- 3) Audit trigger set for `users`. Copy this pattern per table you
-
-    INSERT INTO audit_log (table_name, record_id, action, new_data, changed_by)
-    VALUES (
-        'users', NEW.id, 'INSERT',
-        JSON_OBJECT(
-       
-        NULLIF(@app_current_user_id, '')
-    );
-END$$
 
 CREATE TRIGGER trg_users_audit_update
 AFTER UPDATE ON users
