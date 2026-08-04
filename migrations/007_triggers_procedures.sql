@@ -15,13 +15,6 @@ BEGIN
         'users_active', OLD.is_active, 'is_verified', OLD.is_verified,
             'deleted_at', OLD.deleted_at
         ),ted_at', NEW.deleted_at
-'users', OLD.id, 'DELETE',
-        JSON_OBJECT(
-            'id', OLD.id, 'email', OLD.email, 'username', OLD.username,
-            'full_name', OLD.full_name
-        ),
-        NULLIF(@app_current_user_id, '')
-    );
-END$$
+
 
 DELIMITER ;
