@@ -8,7 +8,4 @@
 CREATE TABLE IF NOT EXISTS attachments (
     id            CHAR(36) NOT NULL DEFAULT (UUID()) PRIMARY KEY,
     owner_table   VARCHAR(64) NOT NULL,   -- e.g. 'users', 'orders'
-    owner_id      VARCHAR(64) NOT NULL,   -- polymorphic FK (cast as needed)
-    file_name     VARCHAR(255) NOT NULL,
-    file_url      VARCHAR(2048) NOT NULL,
-    mime_type     VARCHAR(127),
+ 
