@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS audit_log (
     record_id    VARCHAR(64) NOT NULL,
     action       ENUM('INSERT', 'UPDATE', 'DELETE') NOT NULL,
     old_data     JSON NULL,
-    new_data     JSON NULL,
+
     changed_by   CHAR(36) NULL,
     changed_at   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
