@@ -1,3 +1,0 @@
--- =====================================================================
--- 002_schema_sessions.sql
--- Auth sessions. The raw refresh token is NEVER stored — only a
