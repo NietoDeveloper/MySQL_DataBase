@@ -15,10 +15,7 @@ CREATE ROLE IF NOT EXISTS app_admin;
 -- 3) Admin/back-office role — the intentional bypass, scoped to its
 --    own role instead of turning row-scoping off globally.
 GRANT SELECT, INSERT, UPDATE, DELETE ON users            TO app_admin;
-GRANT SELECT, INSERT, UPDATE, DELETE ON sessions         TO app_admin;
-GRANT SELECT, INSERT, UPDATE, DELETE ON notifications    TO app_admin;
-GRANT SELECT, INSERT, UPDATE, DELETE ON user_settings    TO app_admin;
-GRANT app_rw TO app_admin;
+GRANT SELEn;
 
 -- 4) Lock the brute-force helpers and audit triggers to the roles
 --    that legitimately need them.
