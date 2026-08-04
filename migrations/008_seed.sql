@@ -9,6 +9,3 @@ INSERT IGNORE INTO roles (name, description) VALUES
 
 INSERT IGNORE INTO permissions (code, description) VALUES
     ('users.read',     'View users'),
-    ('users.write',    'Create/update/delete users'),
-    ('settings.read',  'View settings'),
-    ('settings.write', 'Modify settings');
