@@ -1,6 +1,3 @@
--- =====================================================================
--- 003_schema_audit.sql
--- Functional audit trail. Captures who changed what, when, and how.
 
 
 
