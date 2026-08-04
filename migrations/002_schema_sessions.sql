@@ -13,8 +13,7 @@ CREATE TABLE IF NOT EXISTS sessions (
     user_agent         VARCHAR(255),
     ip_address         VARCHAR(45),          -- IPv4 or IPv6 text form
     expires_at         DATETIME NOT NULL,
-    created_at         TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    revoked_at         DATETIME NULL,
+
 
     CONSTRAINT uq_sessions_token_hash UNIQUE (refresh_token_hash),
     CONSTRAINT fk_sessions_user
