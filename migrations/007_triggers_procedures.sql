@@ -1,0 +1,133 @@
+-- =====================================================================
+-- 007_triggers_procedures.sql
+-- Reusable procedures/functions + the audit trigger set for `users`.
+--
+-- Notes on MySQL vs Postgres differences (see docs/PORTING_NOTES.md):
+--   * `updated_at` needs no trigger — `ON UPDATE CURRENT_TIMESTAMP` on
+--     the column (see 001/006) does it natively.
+--   * MySQL triggers have no generic row-to-JSON cast (no to_jsonb(NEW)
+--     equivalent), so the audit trigger is written per table, with an
+--     explicit JSON_OBJECT(...) listing each column. Wire additional
+--     tables by copying the three trigger stubs at the bottom and
+--     adjusting the JSON_OBJECT column list.
+--   * The caller propagates "who made this change" via a session
+--     variable instead of a GUC: `SET @app_current_user_id = '<uuid>';`
+--     once per connection/request, before any write.
+--   * Stored routines run with definer privileges by default in MySQL
+--     (the equivalent of Postgres SECURITY DEFINER) — no extra clause
+--     needed, but ownership of these routines should stay with the
+--     migration/owner account, not the application role.
+-- =====================================================================
+
+DELIMITER $$
+
+-- 0) MySQL views cannot reference a user-defined variable (@var)
+--    directly in their SELECT — CREATE VIEW rejects it with error 1351.
+--    This tiny wrapper function is the workaround: views call the
+--    function instead, which reads the session variable at query time.
+CREATE FUNCTION current_app_user_id()
+RETURNS CHAR(36)
+NO SQL
+BEGIN
+    RETURN @app_current_user_id;
+END$$
+
+-- 1) Brute-force protection helpers. The application calls these
+--    instead of writing to failed_login_attempts / locked_until
+--    directly, so the lockout policy lives in one place.
+CREATE PROCEDURE register_failed_login(
+    IN p_user_id CHAR(36),
+    IN p_max_attempts SMALLINT,
+    IN p_lock_minutes INT
+)
+BEGIN
+    UPDATE users
+    SET failed_login_attempts = failed_login_attempts + 1,
+        locked_until = CASE
+            WHEN failed_login_attempts + 1 >= p_max_attempts
+                THEN DATE_ADD(NOW(), INTERVAL p_lock_minutes MINUTE)
+            ELSE locked_until
+        END
+    WHERE id = p_user_id;
+END$$
+
+CREATE PROCEDURE register_successful_login(IN p_user_id CHAR(36))
+BEGIN
+    UPDATE users
+    SET failed_login_attempts = 0,
+        locked_until = NULL,
+        last_login_at = NOW()
+    WHERE id = p_user_id;
+END$$
+
+CREATE FUNCTION is_account_locked(p_user_id CHAR(36))
+RETURNS BOOLEAN
+DETERMINISTIC
+READS SQL DATA
+BEGIN
+    DECLARE v_locked_until DATETIME;
+    SELECT locked_until INTO v_locked_until FROM users WHERE id = p_user_id;
+    RETURN v_locked_until IS NOT NULL AND v_locked_until > NOW();
+END$$
+
+-- 2) Soft-delete helper — call instead of DELETE to preserve history.
+CREATE PROCEDURE soft_delete_user(IN p_user_id CHAR(36))
+BEGIN
+    UPDATE users SET deleted_at = NOW() WHERE id = p_user_id AND deleted_at IS NULL;
+END$$
+
+-- 3) Audit trigger set for `users`. Copy this pattern per table you
+--    want audited — see the note above.
+CREATE TRIGGER trg_users_audit_insert
+AFTER INSERT ON users
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (table_name, record_id, action, new_data, changed_by)
+    VALUES (
+        'users', NEW.id, 'INSERT',
+        JSON_OBJECT(
+            'id', NEW.id, 'email', NEW.email, 'username', NEW.username,
+            'full_name', NEW.full_name, 'is_active', NEW.is_active,
+            'is_verified', NEW.is_verified
+        ),
+        NULLIF(@app_current_user_id, '')
+    );
+END$$
+
+CREATE TRIGGER trg_users_audit_update
+AFTER UPDATE ON users
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (table_name, record_id, action, old_data, new_data, changed_by)
+    VALUES (
+        'users', NEW.id, 'UPDATE',
+        JSON_OBJECT(
+            'email', OLD.email, 'username', OLD.username, 'full_name', OLD.full_name,
+            'is_active', OLD.is_active, 'is_verified', OLD.is_verified,
+            'deleted_at', OLD.deleted_at
+        ),
+        JSON_OBJECT(
+            'email', NEW.email, 'username', NEW.username, 'full_name', NEW.full_name,
+            'is_active', NEW.is_active, 'is_verified', NEW.is_verified,
+            'deleted_at', NEW.deleted_at
+        ),
+        NULLIF(@app_current_user_id, '')
+    );
+END$$
+
+CREATE TRIGGER trg_users_audit_delete
+AFTER DELETE ON users
+FOR EACH ROW
+BEGIN
+    INSERT INTO audit_log (table_name, record_id, action, old_data, changed_by)
+    VALUES (
+        'users', OLD.id, 'DELETE',
+        JSON_OBJECT(
+            'id', OLD.id, 'email', OLD.email, 'username', OLD.username,
+            'full_name', OLD.full_name
+        ),
+        NULLIF(@app_current_user_id, '')
+    );
+END$$
+
+DELIMITER ;
