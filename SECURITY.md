@@ -161,5 +161,3 @@ equivalent, and what still depends on you / your deployment environment.
   privileges (MySQL's default for triggers/procedures — the equivalent
   of Postgres `SECURITY DEFINER`), so `app_rw` can trigger a write
   indirectly without holding the underlying privilege itself.
-- **Table-specific audit triggers.** Unlike Postgres' generic
-  `to_jsonb(NEW)`, MySQL triggers have no row-to-JSON cast, so the audit
