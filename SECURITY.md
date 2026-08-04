@@ -159,5 +159,3 @@ equivalent, and what still depends on you / your deployment environment.
   application role. Rows are only ever written by the
   `trg_users_audit_*` triggers, which execute with **definer**
   privileges (MySQL's default for triggers/procedures — the equivalent
-  of Postgres `SECURITY DEFINER`), so `app_rw` can trigger a write
-  indirectly without holding the underlying privilege itself.
