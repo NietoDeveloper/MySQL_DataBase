@@ -100,19 +100,3 @@ equivalent, and what still depends on you / your deployment environment.
 - **Extend the audit trigger set deliberately.** It's opt-in per table
   by design — copying it onto every table "just in case" adds write
   overhead without adding safety.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
