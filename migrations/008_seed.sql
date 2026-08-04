@@ -12,7 +12,3 @@ INSERT IGNORE INTO permissions (code, description) VALUES
     ('users.write',    'Create/update/delete users'),
     ('settings.read',  'View settings'),
     ('settings.write', 'Modify settings');
-
-INSERT IGNORE INTO role_permissions (role_id, permission_id)
-SELECT r.id, p.id FROM roles r, permissions p WHERE r.name = 'admin';
-
