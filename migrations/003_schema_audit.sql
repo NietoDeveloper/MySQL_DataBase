@@ -18,7 +18,4 @@ CREATE TABLE IF NOT EXISTS audit_log (
 
     CONSTRAINT fk_audit_log_changed_by
         FOREIGN KEY (changed_by) REFERENCES users (id) ON DELETE SET NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utfmb4 COLLATE=utf8mb4_0900_ai_ci;
 
-CREATE INDEX idx_audit_table_record ON audit_log (table_name, record_id);
-CREATE INDEX idx_audit_changed_at   ON audit_log (changed_at);
