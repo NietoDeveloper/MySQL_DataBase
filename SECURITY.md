@@ -126,7 +126,7 @@ equivalent, and what still depends on you / your deployment environment.
   zero privileges, no explicit "revoke from PUBLIC" step needed.
   `scripts/create_app_role.sh` creates the actual `app_user` account and
 
-- **Row-scoped access via views, not native RLS.** MySQL has no
+- **Row-scoped access viviews, not native RLS.** MySQL has no
   Row-Level Security feature. The closest practical equivalent here is
   _my_noatch tnderlying `users` / `sessions` / `notifications` /
   `user_settings` tables directly. Your application must run
