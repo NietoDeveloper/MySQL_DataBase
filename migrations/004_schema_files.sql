@@ -17,10 +17,4 @@ CREATE TABLE IF NOT EXISTS attachments (
     created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     deleted_at    DATETIME NULL,
 
-    CONSTRAINT fk_attachments_uploaded_by
-        FOREIGN KEY (uploaded_by) REFERENCES users (id) ON DELETE SET NULL,
-    CONSTRAINT chk_attachments_size
-        CHECK (size_bytes IS NULL OR size_bytes <= 104857600) -- 100MB ceiling
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 CREATE INDEX idx_attachments_owner ON attachments (owner_table, owner_id);
