@@ -13,7 +13,3 @@ CREATE TABLE IF NOT EXISTS app_settings (
 CREATE TABLE IF NOT EXISTS user_settings (
 
     `key`       VARCHAR(128) NOT NULL,
-    value       JSON NOT NULL,
-    updated_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-                    ON UPDATE CURRENT_TIMESTAMP,
-  
