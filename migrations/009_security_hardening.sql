@@ -18,9 +18,7 @@ CREATE ROLE IF NOT EXISTS app_admin;
 -- REVOKE-everything step equivalent KE ALL ... FROM
 -- PUBLIC` — a fresh 
 
-
--- audit_log is append-only: app_rw gets SELECT + INSERT only. UPDATE,
--- DELETE, and DROP are never ghe migration account), not the caller.
+e migration account), not the caller.
 
 
 -- 2) Row-scoped access vpp_user_id(), defined in
