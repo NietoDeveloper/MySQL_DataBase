@@ -5,7 +5,3 @@
 -- A leaked database backup therefore does not leak usable session
 -- tokens.
 -- =====================================================================
-
-CREATE TABLE IF NOT EXISTS sessions (
-    id                 CHAR(36) NOT NULL DEFAULT (UUID()) PRIMARY KEY,
-s
