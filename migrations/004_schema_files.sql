@@ -1,6 +1,3 @@
 -- =====================================================================
 -- 004_schema_files.sql
 -- Functional polymorphic attachments table — link a file (stored in
--- S3, local disk, etc.) to any record in any table without a
--- dedicated join table per entity.
--- =====================================================================
