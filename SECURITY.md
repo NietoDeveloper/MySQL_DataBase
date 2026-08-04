@@ -116,5 +116,3 @@ equivalent, and what still depends on you / your deployment environment.
 
 
 
-
-plication), `app_ro` (read-only, for
