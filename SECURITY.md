@@ -125,7 +125,6 @@ equivalent, and what still depends on you / your deployment environment.
   privilege model is allow-list by default — a fresh role starts with
   zero privileges, no explicit "revoke from PUBLIC" step needed.
   `scripts/create_app_role.sh` creates the actual `app_user` account and
-  gives it the `app_rw` role. **The application should never connect
 
 - **Row-scoped access via views, not native RLS.** MySQL has no
   Row-Level Security feature. The closest practical equivalent here is
