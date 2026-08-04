@@ -11,12 +11,7 @@
 --     tables by copying the three trigger stubs at the bottom and
 --     adjusting the JSON_OBJECT column list.
 --   * The caller propagates "who made this change" via a session
---     variable instead of a GUC: `SET @app_current_user_id = '<uuid>';`
---     once per connection/request, before any write.
---   * Stored routines run with definer privileges by default in MySQL
---     (the equivalent of Postgres SECURITY DEFINER) — no extra clause
---     needed, but ownership of these routines should stay with the
---     migration/owner account, not the application role.
+ion/owner account, not the application role.
 -- =====================================================================
 
 DELIMITER $$
