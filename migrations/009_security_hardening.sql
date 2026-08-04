@@ -25,9 +25,7 @@ e migration account), not the caller.
 --    007_triggers_procedures.sql, since MySQL rejects a raw session
 --    variable inside CREATE VIEur tables — so a
 CREATE OR REPLACE VIEW v_my_profile AS
-    SELECT * FROM users WHERE id = current_app_user_id()
-    WITH CASCADED CHECK OPTION;
-
+    SELECT * FROM users WHERE id = c
 CREATE OR REPLACE VIEW v_my_sessions AS
     SELECT * FROM sessions WHERE user_id = current_app_user_id()
     WITH CASCADED CHECK OPTION;
