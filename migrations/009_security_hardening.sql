@@ -14,13 +14,6 @@ CREATE ROLE IF NOT EXISTS app_admin;
 
 -- Baseline: no privileges anywhere until explicitly granted below
 
-
-
-
-
-GRANT SELECT, INSERT, UPDATE, DELETmy_settings        TO app_rw;
-GRANT SELECT ON v_my_profile      TO app_ro
-
 -- app_rw does NOT get direct grants on users / sessions / notifications /
 -- user_settings — it must go through the views above, which is what
 -- actually enforces the row scoping.
