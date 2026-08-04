@@ -1,3 +1,0 @@
-# Entity Relationship Diagram
-
-```mermaid
