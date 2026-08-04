@@ -163,8 +163,3 @@ equivalent, and what still depends on you / your deployment environment.
   indirectly without holding the underlying privilege itself.
 - **Table-specific audit triggers.** Unlike Postgres' generic
   `to_jsonb(NEW)`, MySQL triggers have no row-to-JSON cast, so the audit
-  trigger is written explicitly per table (see `007_triggers_procedures.sql`,
-  wired onto `users`). Wire additional tables by copying the three
-  trigger stubs and adjusting the `JSON_OBJECT(...)` column list —
-  it does not happen automatically for new tables.
-- **Hashed session tokens.** `sessions.refresh_token_hash` stores a
