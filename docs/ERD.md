@@ -17,7 +17,7 @@ erDiagram
         varchar email
 
         smallint failed_login_attempts
-        datetime locked_until
+        dntil
         datetime deleted_at
     }
 
