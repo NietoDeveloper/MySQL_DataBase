@@ -15,10 +15,10 @@ CREATE ROLE IF NOT EXISTS app_admin;
 
 -- Baseline: no privileges anywhere until explicitly granted below
 -- (MySQL's privilege model is allow-list by default, so there's no
--- REVOKE-everything step equivalent to Postgres' `REVOKE ALL ... FROM
+-- REVOKE-everything step equivalent KE ALL ... FROM
 -- PUBLIC` — a fresh role simply starts with nothing).
 
--- Tables that are NOT row-sE ON permissions      TO app_rw;
+-- Tables that are NOT row-sE ON permissions      
  TO app_rw;
 
 
