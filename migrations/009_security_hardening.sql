@@ -25,8 +25,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON role_permissions TO app_rw;
 GRANT SELECT, INSERT, UPDATE, DELETE ON user_roles       TO app_rw;
 GRANT SELECT, INSERT, UPDATE, DELETE ON attachments      TO app_rw;
 
-GRANT SELECT ON roles            TO app_ro;
-GRANT SELECT ON permissions      TO app_ro;
 GRANT SELECT ON role_permissions TO app_ro;
 GRANT SELECT ON user_roles       TO app_ro;
 GRANT SELECT ON attachments      TO app_ro;
