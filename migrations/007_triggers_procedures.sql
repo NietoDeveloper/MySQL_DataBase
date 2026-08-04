@@ -1,17 +1,7 @@
 -- =====================================================================
 -- 007_triggers_procedures.sql
 -- Reusable procedures/functions + the audit trigger set for `users`.
---
--- Notes on MySQL vs Postgres differences (see docs/PORTING_NOTES.md):
---   * `updated_at` needs no trigger — `ON UPDATE CURRENT_TIMESTAMP` on
---     the column (see 001/006) does it natively.
---   * MySQL triggers have no generic row-to-JSON cast (no to_jsonb(NEW)
---     equivalent), so the audit trigger is written per table, with an
---     explicit JSON_OBJECT(...) listing each column. Wire additional
---     tables by copying the three trigger stubs at the bottom and
---     adjusting the JSON_OBJECT column list.
---   * The caller propagates "who made this change" via a session
-ion/owner account, not the application role.
+count, not the application role.
 -- =====================================================================
 
 DELIMITER $$
