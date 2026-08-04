@@ -12,7 +12,7 @@ erDiagram
     USERS ||--o{ ATTACHMENTS : uploads
     USERS ||--o{ AUDIT_LOG : triggers
 
-    USERS {
+
         char36 id PK
         varchar email
 
