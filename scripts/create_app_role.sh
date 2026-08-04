@@ -8,5 +8,3 @@ set -euo pipefail
 : "${MYSQL_USER:?Set MYSQL_USER (bootstrap/admin account)}"
 : "${MYSQL_PASSWORD:?Set MYSRD to a strong, generated password for app_user}"
 
-mysql --host="$MYSQL_HOST" --port="$MYSQL_PORT" --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" <<SQL
-CREATE USER IF NOT EXISTS 'app_user'@'%'
