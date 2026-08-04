@@ -15,10 +15,7 @@ erDiagram
     USERS {
         char36 id PK
         varchar email
-        varchar username
-        varchar password_hash
-        boolean is_active
-        boolean is_verified
+
         smallint failed_login_attempts
         datetime locked_until
         datetime deleted_at
