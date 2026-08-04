@@ -10,12 +10,6 @@ erDiagram
     USERS ||--o{ NOTIFICATIONS : receives
 
 
-    SESSIONS {
-        char36 id PK
-        char36 user_id FK
-
-    }
-
     ATTACHMENTS {
         char36 id PK
         varchar owner_table
