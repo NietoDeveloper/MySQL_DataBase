@@ -2,5 +2,3 @@
 # DANGER: drops and recreates the target database, then re-applies all
 # migrations from scratch.
 set -euo pipefail
-
-: "${MYSQL_HOST:?Set MYSQL_HOST}"
