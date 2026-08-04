@@ -13,7 +13,4 @@ CREATE USER IF NOT EXISTS 'app_user'@'%'
 
          MAX_UPDATES_PER_HOUR 0;
 ALTER USER 'app_user'@'%' IDENTIFIED BY '${APP_DB_PASSWORD}';
-GRANT app_rw TO 'app_user'@'%';
-SET DEFAULT ROLE app_rw TO 'app_user'@'%';
-FLUSH PRIVILEGES;
-S
+GRAN
