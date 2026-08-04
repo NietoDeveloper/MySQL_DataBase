@@ -12,10 +12,7 @@ set -euo pipefail
 
 mysql --host="$MYSQL_HOST" --port="$MYSQL_PORT" --user="$MYSQL_USER" --password="$MYSQL_PASSWORD" <<SQL
 CREATE USER IF NOT EXISTS 'app_user'@'%'
-    IDENTIFIED BY '${APP_DB_PASSWORD}'
-    WITH MAX_USER_CONNECTIONS 50
-         MAX_QUERIES_PER_HOUR 0
-         MAX_CONNECTIONS_PER_HOUR 0
+
          MAX_UPDATES_PER_HOUR 0;
 ALTER USER 'app_user'@'%' IDENTIFIED BY '${APP_DB_PASSWORD}';
 GRANT app_rw TO 'app_user'@'%';
