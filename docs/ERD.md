@@ -10,11 +10,6 @@ erDiagram
     USERS ||--o{ NOTIFICATIONS : receives
 
 
-    PERMISSIONS {
-        smallint id PK
-        varchar code
-    }
-
     SESSIONS {
         char36 id PK
         char36 user_id FK
