@@ -16,6 +16,4 @@ CREATE TABLE IF NOT EXISTS user_settings (
     value       JSON NOT NULL,
     updated_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
                     ON UPDATE CURRENT_TIMESTAMP,
-    PRIMARY KEY (user_id, `key`),
-    CONSTRAINT fk_user_settings_user
-        FOREIGN KEY (
+  
