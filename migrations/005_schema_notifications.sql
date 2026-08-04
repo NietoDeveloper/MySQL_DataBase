@@ -13,8 +13,3 @@ CREATE TABLE IF NOT EXISTS notifications (
     read_at     DATETIME NULL,
     created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT fk_notifications_user
-        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-CREATE INDEX idx_notifications_user_unread ON notifications (user_id, read_at);
