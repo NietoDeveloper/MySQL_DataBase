@@ -128,5 +128,4 @@ plication), `app_ro` (read-only, for
   `SET @app_current_user_id = '<uuid>';` at the start of each
   connectis connection-scoped, not transaction-scoped like Postgres'
   `SET LOCAL`, so a pooled connection that forgets to reset the variable
-  between requests, and treat this as a second layer —
- `app_rw` — `UPDATE` and `DELETE` are simply never granted to any
+  between requests, and treare simply never granted to any
