@@ -22,10 +22,7 @@ e migration account), not the caller.
 
 
 -- 2) Row-scoped access vpp_user_id(), defined in
---    007_triggers_procedures.sql, since MySQL rejects a raw session
---    variable inside CREATE VIEur tables — so a
-CREATE OR REPLACE VIEW v_my_profile AS
-    SELECT * FROM users WHERE id = c
+--    007_triggers_procedures.sql, sin
 CREATE OR REPLACE VIEW v_my_sessions AS
     SELECT * FROM sessions WHERE user_id = current_app_user_id()
     WITH CASCADED CHECK OPTION;
