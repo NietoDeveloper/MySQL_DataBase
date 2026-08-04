@@ -16,6 +16,4 @@ ALTER USER 'app_user'@'%' IDENTIFIED BY '${APP_DB_PASSWORD}';
 GRANT app_rw TO 'app_user'@'%';
 SET DEFAULT ROLE app_rw TO 'app_user'@'%';
 FLUSH PRIVILEGES;
-SQL
-
-echo "app_user is ready (default role app_rw). Rotate APP_DB_PASSWORD periodically."
+S
