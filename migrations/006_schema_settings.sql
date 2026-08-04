@@ -18,5 +18,4 @@ CREATE TABLE IF NOT EXISTS user_settings (
                     ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (user_id, `key`),
     CONSTRAINT fk_user_settings_user
-        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+        FOREIGN KEY (
