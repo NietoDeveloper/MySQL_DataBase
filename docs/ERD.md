@@ -13,8 +13,7 @@ erDiagram
     SESSIONS {
         char36 id PK
         char36 user_id FK
-        char64 refresh_token_hash
-        datetime expires_at
+
     }
 
     ATTACHMENTS {
