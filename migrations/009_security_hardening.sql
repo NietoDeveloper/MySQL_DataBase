@@ -27,9 +27,6 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON attachments      TO app_rw;
 
 GRANT SELECT ON role_permissions TO app_ro;
 GRANT SELECT ON user_roles       TO app_ro;
-GRANT SELECT ON attachments      TO app_ro;
-GRANT SELECT ON app_settings     TO app_ro;
-
 -- audit_log is append-only: app_rw gets SELECT + INSERT only. UPDATE,
 -- DELETE, and DROP are never granted to any application role — writes
 -- only ever happen through the audit triggers, which run with the
