@@ -129,9 +129,7 @@ equivalent, and what still depends on you / your deployment environment.
 - **Row-scoped access via views, not native RLS.** MySQL has no
   Row-Level Security feature. The closest practical equivalent here is
   _my_notifications`, `v_my_settings` — each filtered by a session
-  variable (`@app_current_user_id`) and created `WITH CASCADED CHECK
-  OPTION` so INSERT/UPDATE through the view is rejected if the row
-  wouldn't match the filter. `app_rw` is granted access to the views,
+wouldn't match the filter. `app_rw` is granted access to the views,
   **not** the underlying `users` / `sessions` / `notifications` /
   `user_settings` tables directly. Your application must run
   `SET @app_current_user_id = '<uuid>';` at the start of each
