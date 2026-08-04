@@ -13,11 +13,7 @@ CREATE ROLE IF NOT EXISTS app_ro;
 CREATE ROLE IF NOT EXISTS app_admin;
 
 -- Baseline: no privileges anywhere until explicitly granted below
--- (MySQL's privilege model is allow-list by default, so there's no
--- REVOKE-everything step equivalent KE ALL ... FROM
--- PUBLIC` — a fresh 
 
-e migration account), not the caller.
 
 
 -- 2) Row-scoped access vpp_user_id(), defined in
