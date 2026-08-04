@@ -9,12 +9,6 @@ erDiagram
     USERS ||--o{ SESSIONS : opens
     USERS ||--o{ NOTIFICATIONS : receives
 
-    NOTIFICATIONS {
-        char36 id PK
-        char36 user_id FK
-        varchar type
-        json metadata
-    }
 
     AUDIT_LOG {
         bigint id PK
