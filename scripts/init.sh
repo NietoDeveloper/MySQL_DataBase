@@ -11,6 +11,3 @@ set -euo pipefail
 : "${MYSQL_PASSWORD:?Set MYSQL_PASSWORD}"
 : "${MYSQL_DATABASE:?Set MYSQL_DATABASE}"
 
-MIGRATIONS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../migrations" && pwd)"
-
-for file in "$MIGRATIONS_DIR"/*.sql; do
