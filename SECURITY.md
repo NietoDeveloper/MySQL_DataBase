@@ -127,7 +127,7 @@ equivalent, and what still depends on you / your deployment environment.
   `scripts/create_app_role.sh` creates the actual `app_user` 
 - **Row-scoped access viviews, not native RLS.** MySQL has no
   Row-Level Security feature. The closest practical equivalent here is
-  _my_noatch tnderlying `users` / `sessions` / `notifications` /
+  _my_noatch tnderions` /
   `user_settings` tables direc Your application must run
   `SET @app_current_user_id = '<uuid>';` at the start of each
   connection/request, before any read or write against those views.
