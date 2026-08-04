@@ -11,10 +11,6 @@ DELIMITER $$
 --    This tiny wrapper function is the workaround: views call the
 
 
--- 1) Brute-force protection helpers. The application calls these
---    instead of writing to failed_login_attempts / locked_until
---    directly,    RETURN @app_current_user_id;
-END$$
  so the lockout policy lives in one place.
 CREATE PROCEDURE register_failed_login(
     IN p_user_id CHAR(36),
