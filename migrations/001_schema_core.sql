@@ -15,9 +15,7 @@ CREATE TABLE IF NOT EXISTS users (
     updated_at            TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
                               ON UPDATE CURRENT_TIMESTAMP,
     deleted_at            DATETIME NULL,
-
-    CONSTRAINT uq_users_email    UNIQUE (email),
-    CONSTRAINT uq_users_username UNIQUE (username),
+e),
 
     -- Basic shape validation at the data layer (defense in depth —
     -- do not rely on this instead of application-level validation).
