@@ -9,17 +9,6 @@ erDiagram
     USERS ||--o{ SESSIONS : opens
     USERS ||--o{ NOTIFICATIONS : receives
 
-
-    APP_SETTINGS {
-        varchar key PK
-        json value
-    }
-
-    USER_SETTINGS {
-        char36 user_id FK
-        varchar key
-        json value
-
 `SESSIONS`, `NOTIFICATIONS`, `USER_SETTINGS`, and `USERS` itself are exposed
 to the application role only through row-scoped views
 (`v_my_sessions`, `v_my_notifications`, `v_my_settings`, `v_my_profile`) —
