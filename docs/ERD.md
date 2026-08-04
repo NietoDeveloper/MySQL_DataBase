@@ -9,14 +9,6 @@ erDiagram
     USERS ||--o{ SESSIONS : opens
     USERS ||--o{ NOTIFICATIONS : receives
 
-
-    ATTACHMENTS {
-        char36 id PK
-        varchar owner_table
-        varchar owner_id
-        varchar file_url
-    }
-
     NOTIFICATIONS {
         char36 id PK
         char36 user_id FK
