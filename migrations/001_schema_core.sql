@@ -7,4 +7,4 @@ CREATE TABLE IF NOT EXISTS users (
     full_name             VARCHAR(150),
     is_active             BOOLEAN NOT NULL DEFAULT TRUE,
     last_login_at         DATETIME NULL,
-    CONSTRAINT uq_users_email    UNIQUE (email),
+    CONSTRAINT uq_users_email    UNIQUE 
