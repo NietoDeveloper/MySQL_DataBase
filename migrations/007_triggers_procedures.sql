@@ -1,25 +1,7 @@
 -- =====================================================================
 -- 007_triggers_procedures.sql
 -- Reusable procedures/functions + the audit trigger set for `users`.
---
--- Notes on MySQL vs Postgres differences (see docs/PORTING_NOTES.md):
---   * `updated_at` needs no trigger — `ON UPDATE CURRENT_TIMESTAMP` on
---     the column (see 001/006) does it natively.
---   * MySQL triggers have no generic row-to-JSON cast (no to_jsonb(NEW)
---     equivalent), so the audit trigger is written per table, with an
---     explicit JSON_OBJECT(...) listing each column. Wire additional
---     tables by copying the three trigger stubs at the bottom and
---     adjusting the JSON_OBJECT column list.
---   * The caller propagates "who made this change" via a session
---     variable instead of a GUC: `SET @app_current_user_id = '<uuid>';`
---     once per connection/request, before any write.
---   * Stored routines run with definer privileges by default in MySQL
---     (the equivalent of Postgres SECURITY DEFINER) — no extra clause
---     needed, but ownership of these routines should stay with the
---     migration/owner account, not the application role.
--- =====================================================================
 
-DELIMITER $$
 
 -- 0) MySQL views cannot reference a user-defined variable (@var)
 --    directly in their SELECT — CREATE VIEW rejects it with error 1351.
