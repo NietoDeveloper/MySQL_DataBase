@@ -12,8 +12,6 @@ CREATE TABLE IF NOT EXISTS users (
     CONSTRAINT chk_users_email_format
     FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE,
     CONSTRAINT fk_role_permissions_permission
-        FOREIGN KEY (permission_id) REFERENCES permissions (id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE IF NOT EXISTS user_roles (
     user_id CHAR(36) NOT NULL,
