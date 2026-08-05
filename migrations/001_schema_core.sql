@@ -2,5 +2,3 @@
 CREATE TABLE IF NOT EXISTS users (
     id                    CHAR(36) NOT NULL DEFAULT (UUID()) PRIMARY KEY,
     email                 VARCHAR(255) NOT NULL,
-    username              VARCHAR(32),
-    password_hash         VARCHAR(255) NOT NULL,
