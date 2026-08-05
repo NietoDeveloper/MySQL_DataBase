@@ -1,18 +1,7 @@
 # Security Hardening Notes
 
 This schema ships with a set of security defaults baked in. This document
-explains what they are, what's genuinely different from a Postgres
-equivalent, and what still depends on you / your deployment environment.
-
-## What's enforced at the database layer
-
-- **Least-privilege roles.** `009_d never connect
-  using the Docker bootstrap/root account** — that account exists only
-  to run migrations.
-- _my_notifications`, `v_my_settings` — each filtered by a session
-  variable (`@app_current_user_id`) and created `WITH CASCADED CHECK
-  OPTION` so INSERT/UPDATE through the view is rejected if the row
-  wouldn't match the filter. `app_rw` is granted access to the views,
+ss to the views,
   **not** the underlying `users` / `sessions` / `notifications` /
   `user_settings` tables directly. Your application must run
   `SET @app_current_user_id = '<uuid>';` at the start of each
