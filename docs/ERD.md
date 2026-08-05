@@ -3,18 +3,3 @@
 ```mermaid  varchar record_id
         enum action
         json old_data
-        json new_data
-    }
-
-    APP_SETTINGS {
-        varchar key PK
-        json value
-    }
-
-    USER_SETTINGS {
-        char36 user_id FK
-        varchar key
-ONS`, `NOTIFICATIONS`, `USER_SETTINGS`, and `USERS` itself are exposed
-to the application role only through row-scoped views
-(`v_my_sessions`, `v_my_notifications`, `v_my_settings`, `v_my_profile`) —
-see `docs/SECURITY.md` for why, since MySQL has no native Row-Level Security.
