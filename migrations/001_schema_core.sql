@@ -1,8 +1,7 @@
 -- =====================================================================
 -- 001_schema_core.sql
 -- Core identity & access model: users, roles, permissions (RBAC).
--- Hardened: format/length constraints, brute-force lockout fields.
-==============================================
+===========================================
 
 CREATE TABLE IF NOT EXISTS users (
     id                    CHAR(36) NOT NULL DEFAULT (UUID()) PRIMARY KEY,
