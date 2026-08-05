@@ -1,0 +1,33 @@
+{
+  "name": "mysql-database-example-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal Express REST API demonstrating how a frontend connects to MySQL_DataBase safely — through a backend, never directly. See docs/CONNECTING.md in the repo root before treating this as a template for production.",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "mysql-database-client": "file:../../client",
+    "mysql2": "^3.11.0",
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "express-rate-limit": "^7.4.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.6",
+    "typescript": "^5.5.0",
+    "tsx": "^4.16.0"
+  },
+  "license": "MIT"
+}
