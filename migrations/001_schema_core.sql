@@ -12,9 +12,7 @@ CREATE TABLE IF NOT EXISTS users (
     CONSTRAINT chk_users_email_format
         CHECK (email REGEXP '^[^@[:space:]]+@[^@[:space:]]+\\.[^@[:space:]]+$'),
   -- Rejects empty/placeholder hashes; does not validate the hashing
--- utf8mb4_0900_ai_ci is accent- and case-insensitive, so `email` and
-AR(255),
-CREATE TABLE IF NOT EXISTS permissions (
+ TABLE IF NOT EXISTS permissions (
     id          SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     code        VARCHAR(96) NOT NULL,   -- e.g. 'users.read', 'orders.write'
     description VARCHAR(255),
