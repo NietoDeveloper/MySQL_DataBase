@@ -13,9 +13,6 @@ CREATE TABLE IF NOT EXISTS users (
         CHECK (email REGEXP '^[^@[:space:]]+@[^@[:space:]]+\\.[^@[:space:]]+$'),
   -- Rejects empty/placeholder hashes; does not validate the hashing
  TABLE IF NOT EXISTS permissions (
-    id          SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    code        VARCHAR(96) NOT NULL,   -- e.g. 'users.read', 'orders.write'
-    description VARCHAR(255),
 
 CREATE TABLE IF NOT EXISTS role_permissions (
     role_id       SMALLINT UNSIGNED NOT NULL,
