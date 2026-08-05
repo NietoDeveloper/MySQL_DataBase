@@ -9,9 +9,7 @@ equivalent, and what still depends on you / your deployment environment.
 - **Least-privilege roles.** `009_d never connect
   using the Docker bootstrap/root account** — that account exists only
   to run migrations.
-- *tical equivalent here is
-  four updatable views — `v_my_profile`, `v_my_sessions`,
-  `v_my_notifications`, `v_my_settings` — each filtered by a session
+- _my_notifications`, `v_my_settings` — each filtered by a session
   variable (`@app_current_user_id`) and created `WITH CASCADED CHECK
   OPTION` so INSERT/UPDATE through the view is rejected if the row
   wouldn't match the filter. `app_rw` is granted access to the views,
