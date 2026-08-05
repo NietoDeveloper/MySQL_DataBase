@@ -6,9 +6,6 @@ CREATE TABLE IF NOT EXISTS users (
     password_hash         VARCHAR(255) NOT NULL,
     full_name             VARCHAR(150),
     is_active             BOOLEAN NOT NULL DEFAULT TRUE,
-    is_verified           BOOLEAN NOT NULL DEFAULT FALSE,
-    failed_login_attempts SMALLINT UNSIGNED NOT NULL DEFAULT 0,
-
     last_login_at         DATETIME NULL,
     created_at            TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at            TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
