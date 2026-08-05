@@ -3,7 +3,7 @@
 -- Core identity & access model: users, roles, permissions (RBAC).
 -- Hardened: format/length constraints, brute-force lockout fields.
 -- Requires MySQL 8.0.16+ (enforced CHECK constraints) / 8.0+ (UUID()
--- as a column DEFAULT expression).
+
 -- =====================================================================
 
 CREATE TABLE IF NOT EXISTS users (
