@@ -7,17 +7,7 @@ erDiagram
     ROLES ||--o{ ROLE_PERMISSIONS : has
 
 
-    SESSIONS {
-        char36 id PK
-        char36 user_id FK
-        char64 refresh_token_hash
-        datetime expires_at
-    }
-
-    ATTACHMENTS {
-        char36 id PK
-        varchar owner_table
-        varchar owner_id
+  varchar owner_id
         varchar file_url
     }
 
