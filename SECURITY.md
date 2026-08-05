@@ -76,9 +76,6 @@ equivalent, and what still depends on you / your deployment environment.
 ## What you still need to do
 
 - **Never commit real credentials.** `.env.example` ships with empty
-  passwords on purpose — generate strong ones LS in any non-local environment.** Add
-r enabling the `validate_password` component** on the server
-ide this repo's scripted flow.
-- **Extend the audit trigger set deliberately.** It's opt-in per table
+xtend the audit trigger set deliberately.** It's opt-in per table
   by design — copying it onto every table "just in case" adds write
   overhead without adding safety.
