@@ -71,8 +71,4 @@ equivalent, and what still depends on you / your deployment environment.
 | Row-level security | Native `ROW LEVEL SECURITY` + `POLICY`, enforced per-transaction | Filtered updatable views + a connection-scoped session variable — weaker isolation, documented above |
 | Generic audit trigger | One function (`to_jsonb(NEW)`) reused on any table | Per-table triggers with an explicit column list |
 | `SET LOCAL` (per-transaction context) | Yes | No — MySQL session variables persist for the connection, not just the transaction |
-| Statement/idle timeouts per role | `ALTER ROLE ... SET statement_timeout` | No per-role equivalent; enforce at the connection-pool/driver layer instead (see below) |
-
-## What you still need to do
-
-end the audit trigger set deliberately.** It's 
+| Statement/idle timeouts per role | `ALTER ROLE ... SET statement_timeout` | No per-role 
