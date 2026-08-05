@@ -7,11 +7,6 @@ CREATE TABLE IF NOT EXISTS users (
     full_name             VARCHAR(150),
     is_active             BOOLEAN NOT NULL DEFAULT TRUE,
     last_login_at         DATETIME NULL,
-    created_at            TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    updated_at            TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
-                              ON UPDATE CURRENT_TIMESTAMP,
-    deleted_at            DATETIME NULL,
-
     CONSTRAINT uq_users_email    UNIQUE (email),
     CONSTRAINT uq_users_username UNIQUE (username),
 
