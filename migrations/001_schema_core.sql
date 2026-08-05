@@ -11,9 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
  -- do not rely on this instead of application-level validation).
     CONSTRAINT chk_users_email_format
     FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE,
-    CONSTRAINT fk_role_permissions_permission
-
-CREATE TABLE IF NOT EXISTS user_roles (
+ TABLE IF NOT EXISTS user_roles (
     user_id CHAR(36) NOT NULL,
     role_id SMALLINT UNSIGNED NOT NULL,
     PRIMARY KEY (user_id, role_id),
