@@ -11,11 +11,8 @@ CREATE TABLE IF NOT EXISTS users (
  -- do not rely on this instead of application-level validation).
     CONSTRAINT chk_users_email_format
         CHECK (email REGEXP '^[^@[:space:]]+@[^@[:space:]]+\\.[^@[:space:]]+$'),
-    CHECK (username IS NULL OR CHAR_LENGTH(username) BETWEEN 3 AND 32),
-    -- Rejects empty/placeholder hashes; does not validate the hashing
-    -- algorithm itself (enforce bcrypt/argon2 in the application layer).
-    CONSTRAINT chk_users_password_hash_not_blank
-        CHECK (CHAR_LENGTH(password_hash) >= 20)
+  -- Rejects empty/placeholder hashes; does not validate the hashing
+      CHECK (CHAR_LENGTH(password_hash) >= 20)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- utf8mb4_0900_ai_ci is accent- and case-insensitive, so `email` and
