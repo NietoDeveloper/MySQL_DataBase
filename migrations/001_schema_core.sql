@@ -13,10 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
         CHECK (email REGEXP '^[^@[:space:]]+@[^@[:space:]]+\\.[^@[:space:]]+$'),
   -- Rejects empty/placeholder hashes; does not validate the hashing
  TABLE IF NOT EXISTS permissions (
-
-CREATE TABLE IF NOT EXISTS role_permissions (
-    role_id       SMALLINT UNSIGNED NOT NULL,
-    permission_id SMALLINT UNSIGNED NOT NULL,
+  permission_id SMALLINT UNSIGNED NOT NULL,
     PRIMARY KEY (role_id, permission_id),
     CONSTRAINT fk_role_permissions_role
         FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE,
