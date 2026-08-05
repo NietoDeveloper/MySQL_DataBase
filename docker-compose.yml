@@ -2,21 +2,5 @@ version: "3.9"
 
 ronment reachable from outside your machine/VPC.
       - "127.0.0.1:${MYSQL_PORT:-3306}:3306"
-    volumes:
-      - mysqldata:/var/lib/mysql
-      - ./migrations:/docker-entrypoint-initdb.d
-    security_opt:
-      - no-new-privileges:true
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
-    deploy:
-      resources:
-        limits:
-          cpus: "1.0"
-          memory: 768M
-
-volumes:
+    
   mysqldata:
