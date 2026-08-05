@@ -1,6 +1,0 @@
-version: "3.9"
-
-ronment reachable from outside your machine/VPC.
-      - "127.0.0.1:${MYSQL_PORT:-3306}:3306"
-    
-  mysqldata:
