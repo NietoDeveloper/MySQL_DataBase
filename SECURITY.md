@@ -36,6 +36,4 @@ equivalent, and what still depends on you / your deployment environment.
   not a replacement for it.
 - **Append-only audit log.** `audit_log` grants `SELECT, INSERT` only to
   `app_rw` — `UPDATE` and `DELETE` are simply never granted to any
-  application role. Rows are only ever written by the
-  `trg_users_audit_*` triggers, which execute with **definer**
-  privileges (MySQL's default for triggers/procedures — the equivalent
+  application role. Rows are only ever written by 
