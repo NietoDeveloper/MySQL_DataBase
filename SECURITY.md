@@ -78,8 +78,7 @@ equivalent, and what still depends on you / your deployment environment.
 - **Never commit real credentials.** `.env.example` ships with empty
   passwords on purpose — generate strong ones (`openssl rand -base64 32`)
   per environment and keep `.env` out of version control (already in
-  `.gitignore`).
-- **Require TLS in any non-local environment.** Add
+uire TLS in any non-local environment.** Add
   `--ssl-mode=REQUIRED` (or `VERIFY_IDENTITY` with a CA bundle) to every
   connection once this database isn't running on `localhost`.
 - **Enforce statement/idle timeouts at the connection-pool or driver
