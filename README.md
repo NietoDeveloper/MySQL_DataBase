@@ -2,17 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,2,5,30&height=240&section=header&text=MYSQL%20DB&fontSize=80&fontColor=FFD700&fontAlignY=42&desc=⚡%20Functional%20Starter%20Schema%20·%20RBAC%20%2B%20Audit%20Trail%20·%20Docker%20Powered&descAlignY=62&descColor=DCDCDC&animation=fadeIn" width="100%"/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=20&duration=2800&pause=900&color=FFD700&center=true&vCenter=true&width=760&lines=%E2%9A%A1+Production-Grade+MySQL+Foundation;%F0%9F%90%B3+Fully+Dockerized+%7C+Zero+Local+Dependencies;%F0%9F%94%92+Built-In+RBAC+%2B+Automatic+Audit+Trail;%F0%9F%93%A6+ORM-Agnostic+%7C+Plain+SQL+Migrations;%F0%9F%94%84+Polymorphic+Attachments+%7C+Soft+Deletes;%F0%9F%9A%80+Drop-In+Foundation+for+Any+New+Project;%F0%9F%8F%86+%231+GitHub+Committer+in+Colombia)](https://git.io/typing-svg)
-
-jsonwebtokens&logoColor=FFD700"/>
-  <img src="https://img.shields.io/badge/RBAC-Roles_%26_Permissions-FFD700?style=for-the-badge&logoColor=000"/>
-  <img src="https://img.shields.io/badge/Audit_Trail-JSON-47A248?style=for-the-badge&logoColor=white"/>
-  <img src="https://img.shields.io/badge/ORM-Agnostic-FF6B35?style=for-the-badge&logoColor=white"/>
-</p>
-
-<p align="center">
-  <a href="https://github.com/NietoDeveloper/MySQL_DataBase">
-    <img src="https://img.shields.io/badge/📂_Source-NietoDeveloper%2FMySQL__DataBase-000000?style=for-the-badge&logo=github&logoColor=FFD700"/>
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=700&size=20&duration=2800&pause=900&color=FFD700&center=true&vCenter=true&width=760&lines=%E2%9A%A1+Production-Grade+MySQL+Foundation;%F0%9F%90%B3+Fully+Dockerized+%7C+Zero+Local+Dependencies;%F0%9F%94%92+Built-In+RBAC+%2B+Automatic+Audit+Trail;%F0%9F%93%A6+ORM-Agnostic+%7C+Plain+SQL+Migrations;%F0%9F%94%84+Polymorphic+Attachments+%7C+Soft+Deletes;%F0%9F%9A%80+Drop-In+Foundation000?style=for-the-badge&logo=github&logoColor=FFD700"/>
   </a>
 </p>
 
