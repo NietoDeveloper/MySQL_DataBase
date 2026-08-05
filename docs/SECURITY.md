@@ -9,8 +9,7 @@ equivalent, and what still depends on you / your deployment environment.
 - **Least-privilege roles.** `009_d never connect
   using the Docker bootstrap/root account** — that account exists only
   to run migrations.
-- **Row-scoped access via views, not native RLS.** MySQL has no
-  Row-Level Security feature. The closest practical equivalent here is
+- *tical equivalent here is
   four updatable views — `v_my_profile`, `v_my_sessions`,
   `v_my_notifications`, `v_my_settings` — each filtered by a session
   variable (`@app_current_user_id`) and created `WITH CASCADED CHECK
