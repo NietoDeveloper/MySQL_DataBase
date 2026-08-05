@@ -81,10 +81,7 @@ equivalent, and what still depends on you / your deployment environment.
 uire TLS in any non-local environment.** Add
   `--ssl-mode=REQUIRED` (or `VERIFY_IDENTITY` with a CA bundle) to every
   connection once this database isn't running on `localhost`.
-- **Enforce statement/idle timeouts at the connection-pool or driver
- a proxy like
-  ProxySQL) instead.
-- **Reset `@app_current_user_id` on every pooled-connection checkout** —
+- **Enforce statement/idle timeouts at the co `@app_current_user_id` on every pooled-connection checkout** —
   see the RLS caveat above. This is the single most important operational
   rule in this document.
 - **Rotate `APP_DB_PASSWORD` periodically** by re-running
