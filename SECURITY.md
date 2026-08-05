@@ -81,8 +81,7 @@ equivalent, and what still depends on you / your deployment environment.
 uire TLS in any non-local environment.** Add
   `--ssl-mode=REQUIRED` (or `VERIFY_IDENTITY` with a CA bundle) to every
   connection once this database isn't running on kout** —
-  see the RLS caveat above. This is the single most important operational
-  rule in this document.
+ le in this document.
 - **Rotate `APP_DB_PASSWORD` periodically** by re-running
   `scripts/create_app_role.sh` with a new value.
 - **Don't publish the MySQL port publicly.** `docker-compose.yml` binds
