@@ -5,14 +5,7 @@ erDiagram
     USERS ||--o{ USER_ROLES : has
     ROLES ||--o{ USER_ROLES : assigned_to
     ROLES ||--o{ ROLE_PERMISSIONS : has
-    PERMISSIONS ||--o{ ROLE_PERMISSIONS : granted_via
-    USERS ||--o{ SESSIONS : opens
-    USERS ||--o{ NOTIFICATIONS : receives
-    USERS ||--o{ USER_SETTINGS : configures
-    USERS ||--o{ ATTACHMENTS : uploads
-    USERS ||--o{ AUDIT_LOG : triggers
-
-    USERS {
+ERS {
         char36 id PK
         varchar email
         varchar username
