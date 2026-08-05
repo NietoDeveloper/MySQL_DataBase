@@ -5,6 +5,3 @@ CREATE TABLE IF NOT EXISTS users (
     username              VARCHAR(32),
     password_hash         VARCHAR(255) NOT NULL,
     full_name             VARCHAR(150),
-    is_active             BOOLEAN NOT NULL DEFAULT TRUE,
-    last_login_at         DATETIME NULL,
-    CONSTRAINT uq_users_email    UNIQUE 
