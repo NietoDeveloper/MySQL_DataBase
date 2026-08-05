@@ -51,6 +51,4 @@ equivalent, and what still depends on you / your deployment environment.
   SHA-256 (or stronger) hash computed by the application — never the
   raw refresh token. A leaked backup does not leak usable sessions.
 - **Brute-force lockout.** `users.failed_login_attempts` /
-  `users.locked_until`, managed via ) reused on any table | Per-table triggers with an explicit column list |
-| `SET LOCAL` (per-transaction context) | Yes | No — MySQL session variables persist for the connection, not just the transaction |
-| Statement/idle timeouts per role | `ALTER ROLE ... SET statement_timeout` | No per-role 
+  `users.locked_until`, managed via ) reused on atement_timeout` | No per-role 
