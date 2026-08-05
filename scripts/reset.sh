@@ -7,7 +7,6 @@ set -euo pipefail
 : "${MYSQL_PORT:?Set MYSQL_PORT}"
 : "${MYSQL_USER:?Set MYSQL_USER (bootstrap/admin account)}"
 : "${MYSQL_PASSWORD:?Set MYSQL_PASSWORD}"
-: "${MYSQL_DATABASE:?Set MYSQL_DATABASE}"
 
 read -p "This will DROP all data in '$MYSQL_DATABASE'. Type 'yes' to continue: " confirm
 if [ "$confirm" != "yes" ]; then
