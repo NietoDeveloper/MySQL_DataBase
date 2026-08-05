@@ -6,10 +6,3 @@
 set -euo pipefail
 
 : "${MYSQL_HOST:?Set MYSQL_HOST}"
-: "${MYSQL_PORT:?Set MYSQL_PORT}"
-: "${MYSQL_USER:?Set MYSQL_USER (bootstrap/admin account)}"
-: "${$MYSQL_HOST" --port="$MYSQL_PORT" --user="$MYSQL_USER" \
-        --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" < "$file"
-done
-
-echo "Done. All migrations applied."
