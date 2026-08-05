@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS users (
     is_active             BOOLEAN NOT NULL DEFAULT TRUE,
     is_verified           BOOLEAN NOT NULL DEFAULT FALSE,
     failed_login_attempts SMALLINT UNSIGNED NOT NULL DEFAULT 0,
-    locked_until          DATETIME NULL,
+
     last_login_at         DATETIME NULL,
     created_at            TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at            TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
