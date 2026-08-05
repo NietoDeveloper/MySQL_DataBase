@@ -1,31 +1,4 @@
--- =====================================================================
--- 007_triggers_procedures.sql
--- Reusable procedures/functions + the audit trigger set for `users`.
-
-
--- 0) MySQL views cannot reference a user-defined variable (@var)
---    directly in their SELECT — CREATE VIEW rejects it with error 1351.
---    This tiny wrapper function is the workaround: views call the
---    function instead, which reads the session variable at query time.
-CREATE FUNCTION current_app_user_id()
-RETURNS CHAR(36)
-NO SQL
-BEGIN
-    RETURN @app_current_user_id;
-END$$
-
--- 1) Brute-force protection helpers. The application calls these
---    instead of writing to failed_login_attempts / locked_until
---    directly, so the lockout policy lives in one place.
-CREATE PROCEDURE register_failed_login(
-    IN p_user_id CHAR(36),
-    IN p_max_attempts SMALLINT,
-    IN p_lock_minutes INT
-)
-BEGIN
-    UPDATE users
-    SET failed_login_attempts = failed_login_attempts + 1,
-        locked_until = CASE
+   locked_until = CASE
             WHEN failed_login_attempts + 1 >= p_max_attempts
                 THEN DATE_ADD(NOW(), INTERVAL p_lock_minutes MINUTE)
             ELSE locked_until
