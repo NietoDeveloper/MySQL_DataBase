@@ -11,8 +11,7 @@ CREATE TABLE IF NOT EXISTS users (
  -- do not rely on this instead of application-level validation).
     CONSTRAINT chk_users_email_format
         CHECK (email REGEXP '^[^@[:space:]]+@[^@[:space:]]+\\.[^@[:space:]]+$'),
-    CONSTRAINT chk_users_username_len
-        CHECK (username IS NULL OR CHAR_LENGTH(username) BETWEEN 3 AND 32),
+    CHECK (username IS NULL OR CHAR_LENGTH(username) BETWEEN 3 AND 32),
     -- Rejects empty/placeholder hashes; does not validate the hashing
     -- algorithm itself (enforce bcrypt/argon2 in the application layer).
     CONSTRAINT chk_users_password_hash_not_blank
