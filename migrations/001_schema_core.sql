@@ -2,8 +2,7 @@
 -- 001_schema_core.sql
 -- Core identity & access model: users, roles, permissions (RBAC).
 -- Hardened: format/length constraints, brute-force lockout fields.
--- Requires MySQL 8.0.16+ (enforced CHECK constraints) / 8.0+ (UUID()
--- =====================================================================
+==============================================
 
 CREATE TABLE IF NOT EXISTS users (
     id                    CHAR(36) NOT NULL DEFAULT (UUID()) PRIMARY KEY,
