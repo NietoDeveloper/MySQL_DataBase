@@ -1,0 +1,93 @@
+version: "3.9"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: functional-mysql-db
+    restart: unless-stopped
+    environment:
+      # Bootstrap/admin account — used ONLY to run migrations. Never
+      # point the application at this account.
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set a strong MYSQL_ROOT_PASSWORD in .env — no default is provided}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-functional_db}
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+      - --default-authentication-plugin=caching_sha2_password
+      - --local-infile=0
+      # --- Correctness & durability ---------------------------------
+      - --event-scheduler=ON
+      - --innodb-flush-log-at-trx-commit=1
+      - --sql-mode=STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO
+      # --- Throughput -------------------------------------------------
+      - --innodb-buffer-pool-size=512M
+      - --innodb-buffer-pool-instances=2
+      - --innodb-log-file-size=256M
+      - --innodb-flush-method=O_DIRECT
+      - --max-connections=200
+      - --thread-cache-size=16
+      # --- Observability ------------------------------------------------
+      - --slow-query-log=1
+      - --slow-query-log-file=/var/lib/mysql/slow-query.log
+      - --long-query-time=1
+    ports:
+      - "127.0.0.1:${MYSQL_PORT:-3306}:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+      - ./migrations:/docker-entrypoint-initdb.d
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-p${MYSQL_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 1024M
+
+  api:
+    build:
+      context: .
+      dockerfile: examples/express-api/Dockerfile
+    container_name: functional-mysql-example-api
+    restart: unless-stopped
+    profiles: ["with-api"]
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: ${APP_DB_USER:-app_user}
+      DB_PASSWORD: ${APP_DB_PASSWORD:?Set APP_DB_PASSWORD in .env — run scripts/create_app_role.sh first}
+      DB_NAME: ${MYSQL_DATABASE:-functional_db}
+      DB_POOL_SIZE: ${API_DB_POOL_SIZE:-10}
+      DB_SSL: "false"
+      PORT: 4000
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:5173}
+      JWT_SECRET: ${JWT_SECRET:?Set a long random JWT_SECRET in .env}
+      JWT_TTL: ${JWT_TTL:-15m}
+      REFRESH_TTL_DAYS: ${REFRESH_TTL_DAYS:-30}
+    ports:
+      - "127.0.0.1:${API_PORT:-4000}:4000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    security_opt:
+      - no-new-privileges:true
+
+  adminer:
+    image: adminer:latest
+    container_name: functional-mysql-adminer
+    restart: unless-stopped
+    profiles: ["dev-tools"]
+    environment:
+      ADMINER_DEFAULT_SERVER: mysql
+    ports:
+      - "127.0.0.1:${ADMINER_PORT:-8081}:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysqldata:
