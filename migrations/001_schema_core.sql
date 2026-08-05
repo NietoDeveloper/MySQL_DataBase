@@ -14,10 +14,6 @@ CREATE TABLE IF NOT EXISTS users (
   -- Rejects empty/placeholder hashes; does not validate the hashing
 -- utf8mb4_0900_ai_ci is accent- and case-insensitive, so `email` and
 AR(255),
-    created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT uq_roles_name UNIQUE (name)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 CREATE TABLE IF NOT EXISTS permissions (
     id          SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     code        VARCHAR(96) NOT NULL,   -- e.g. 'users.read', 'orders.write'
