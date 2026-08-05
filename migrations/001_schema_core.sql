@@ -10,13 +10,7 @@ CREATE TABLE IF NOT EXISTS users (
     CONSTRAINT uq_users_email    UNIQUE (email),
  -- do not rely on this instead of application-level validation).
     CONSTRAINT chk_users_email_format
-        CHECK (email REGEXP '^[^@[:space:]]+@[^@[:space:]]+\\.[^@[:space:]]+$'),
-  -- Rejects empty/placeholder hashes; does not validate the hashing
- TABLE IF NOT EXISTS permissions (
-  permission_id SMALLINT UNSIGNED NOT NULL,
-    PRIMARY KEY (role_id, permission_id),
-    CONSTRAINT fk_role_permissions_role
-        FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE,
+    FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE,
     CONSTRAINT fk_role_permissions_permission
         FOREIGN KEY (permission_id) REFERENCES permissions (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
