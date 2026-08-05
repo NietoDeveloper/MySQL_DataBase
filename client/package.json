@@ -1,0 +1,21 @@
+{
+  "name": "mysql-database-client",
+  "version": "1.0.0",
+  "description": "Minimal, production-ready connection layer for MySQL_DataBase — drop into any Node.js/TypeScript backend that serves a frontend.",
+  "main": "dist/db.js",
+  "types": "dist/db.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "healthcheck": "tsx src/healthcheck.ts"
+  },
+  "dependencies": {
+    "mysql2": "^3.11.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.0",
+    "tsx": "^4.16.0"
+  },
+  "license": "MIT"
+}
