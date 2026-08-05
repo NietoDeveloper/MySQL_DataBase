@@ -7,8 +7,7 @@ equivalent, and what still depends on you / your deployment environment.
 ## What's enforced at the database layer
 
 - **Least-privilege roles.** `009_security_hardening.sql` creates
- vilege model is allow-list by default — a fresh role starts with
-  zero privileges, no explicit "revoke from PUBLIC" step needed.
+ vilIC" step needed.
   `scripts/create_app_role.sh` creates the actual `app_user` account and
   gives it the `app_rw` role. **The application should never connect
   using the Docker bootstrap/root account** — that account exists only
