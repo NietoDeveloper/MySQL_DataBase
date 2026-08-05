@@ -4,7 +4,3 @@
 set -euo pipefail
 
  "${MYSQL_PASSWORD:?Set MYSQL_PASSWORD}"
-
-read -p "This will DROP all data in '$MYSQL_DATABASE'. Type 'yes' to continue: " confirm
-if [ "$confirm" != "yes" ]; then
-  echo "Aborted."
