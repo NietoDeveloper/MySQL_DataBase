@@ -7,7 +7,7 @@
 </p>
 
 
-> State-of-the-art schema design for real-time auditability and reusable data orchestration across **any** Digital Twin, e-commerce, or SaaS ecosystem. A production-grade, ORM-agnostic foundation connecting new projects to a scalable, secure, Dockerized database — in minutes, not days.
+
 >
 > *Modular · Robust · Obsessively Production-Ready · Built in Bogotá 🇨🇴*
 
