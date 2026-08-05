@@ -12,9 +12,6 @@ CREATE TABLE IF NOT EXISTS users (
     CONSTRAINT chk_users_email_format
         CHECK (email REGEXP '^[^@[:space:]]+@[^@[:space:]]+\\.[^@[:space:]]+$'),
   -- Rejects empty/placeholder hashes; does not validate the hashing
-      CHECK (CHAR_LENGTH(password_hash) >= 20)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 -- utf8mb4_0900_ai_ci is accent- and case-insensitive, so `email` and
 -- `username` behave like Postgres CITEXT without extra plumbing.
 
