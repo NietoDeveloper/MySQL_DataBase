@@ -8,8 +8,6 @@ CREATE TABLE IF NOT EXISTS users (
     is_active             BOOLEAN NOT NULL DEFAULT TRUE,
     last_login_at         DATETIME NULL,
     CONSTRAINT uq_users_email    UNIQUE (email),
-    CONSTRAINT uq_users_username UNIQUE (username),
-
     -- Basic shape validation at the data layer (defense in depth —
     -- do not rely on this instead of application-level validation).
     CONSTRAINT chk_users_email_format
