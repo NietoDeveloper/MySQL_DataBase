@@ -1,12 +1,4 @@
-# Security Hardening Notes
-
-This schema ships with a set of security defaults baked in. This document
-ss to the views,
-  **not** the underlying `users` / `sessions` / `notifications` /
-  `user_settings` tables directly. Your application must run
-  `SET @app_current_user_id = '<uuid>';` at the start of each
-  connection/request, before any read or write against those views.
-  **Read this carefully: this is weaker than Postgres RLS.** A session
+# Security Hardening Notesd this carefully: this is weaker than Postgres RLS.** A session
   variable is connection-scoped, not transaction-scoped like Postgres'
   `SET LOCAL`, so a pooled connection that forgets to reset the variable
   between requests can leak context across users. If you use a
