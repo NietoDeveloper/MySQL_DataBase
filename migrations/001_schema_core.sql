@@ -10,5 +10,3 @@ CREATE TABLE IF NOT EXISTS users (
     CONSTRAINT uq_users_email    UNIQUE (email),
  -- do not rely on this instead of application-level validation).
     CONSTRAINT chk_users_email_format
-    FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE,
- role_id SMALLINT UNSIGNED
