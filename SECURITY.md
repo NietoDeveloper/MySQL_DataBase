@@ -76,6 +76,4 @@ equivalent, and what still depends on you / your deployment environment.
 ## What you still need to do
 
 - **Never commit real credentials.** `.env.example` ships with empty
-xtend the audit trigger set deliberately.** It's opt-in per table
-  by design — copying it onto every table "just in case" adds write
-  overhead without adding safety.
+xtend the audit trigger set deliberately.** It's opt-in per tablewithout adding safety.
