@@ -1,14 +1,6 @@
 # Security Hardening Notesd this carefully: this is weaker than Postgres RLS.** A session
   variable is connection-scoped, not transaction-scoped like Postgres'
-  `SET LOCAL`, so a pooled connection that forgets to reset the variable
-  between requests can leak context across users. If you use a
-  connection pool, reset (`SET @app_current_user_id = NULL;`) or
-  re-assert it on every checkout, and treat this as a second layer —
-  the application layer remains the primary access-control boundary,
-  not a replacement for it.
-- **Append-only audit log.** `audit_log` grants `SELECT, INSERT` only to
-  `app_rw` — `UPDATE` and `DELETE` are simply never granted to any
-  application role. Rows are only ever written by the
+  `SET LOCAL`, so a pooled connection that ication role. Rows are only ever written by the
   `trg_users_audit_*` triggers, which execute with **definer**
   privileges (MySQL's default for triggers/procedures — the equivalent
   of Postgres `SECURITY DEFINER`), so `app_rw` can trigger a write
