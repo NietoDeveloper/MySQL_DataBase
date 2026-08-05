@@ -8,14 +8,7 @@ set -euo pipefail
 : "${MYSQL_HOST:?Set MYSQL_HOST}"
 : "${MYSQL_PORT:?Set MYSQL_PORT}"
 : "${MYSQL_USER:?Set MYSQL_USER (bootstrap/admin account)}"
-: "${MYSQL_PASSWORD:?Set MYSQL_PASSWORD}"
-: "${MYSQL_DATABASE:?Set MYSQL_DATABASE}"
-
-MIGRATIONS_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../migrations" && pwd)"
-
-for file in "$MIGRATIONS_DIR"/*.sql; do
-  echo "Applying: $(basename "$file")"
-  mysql --host="$MYSQL_HOST" --port="$MYSQL_PORT" --user="$MYSQL_USER" \
+: "${$MYSQL_HOST" --port="$MYSQL_PORT" --user="$MYSQL_USER" \
         --password="$MYSQL_PASSWORD" "$MYSQL_DATABASE" < "$file"
 done
 
