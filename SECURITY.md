@@ -49,6 +49,4 @@ equivalent, and what still depends on you / your deployment environment.
   it does not happen automatically for new tables.
 - **Hashed session tokens.** `sessions.refresh_token_hash` stores a
   SHA-256 (or stronger) hash computed by the application — never the
-  raw refresh token. A leaked backup does not leak usable sessions.
-- **Brute-force lockout.** `users.failed_login_attempts` /
-  `users.locked_until`, managed via ) reused on atement_timeout` | No per-role 
+  raw refresh token. A leaked backup does not 
