@@ -6,10 +6,7 @@ equivalent, and what still depends on you / your deployment environment.
 
 ## What's enforced at the database layer
 
-- **Least-privilege roles.** `009_security_hardening.sql` creates
- vilIC" step needed.
-  `scripts/create_app_role.sh` creates the actual `app_user` account and
-  gives it the `app_rw` role. **The application should never connect
+- **Least-privilege roles.** `009_d never connect
   using the Docker bootstrap/root account** — that account exists only
   to run migrations.
 - **Row-scoped access via views, not native RLS.** MySQL has no
