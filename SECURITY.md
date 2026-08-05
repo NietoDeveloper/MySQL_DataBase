@@ -80,9 +80,7 @@ equivalent, and what still depends on you / your deployment environment.
   per environment and keep `.env` out of version control (already in
 uire TLS in any non-local environment.** Add
   `--ssl-mode=REQUIRED` (or `VERIFY_IDENTITY` his document.
-- **Rotate `APP_DB_PASSWORD` periodically** by ss you have a
-  specific, firewalled reason not to.
-- **Consider enabling the `validate_password` component** on the server
+nsider enabling the `validate_password` component** on the server
   for any environment that allows password-based account creation
   outside this repo's scripted flow.
 - **Extend the audit trigger set deliberately.** It's opt-in per table
