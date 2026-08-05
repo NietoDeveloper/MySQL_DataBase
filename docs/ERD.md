@@ -1,27 +1,6 @@
 # Entity Relationship Diagram
 
-```mermaid
-erDiagram
-    USERS ||--o{ USER_ROLES : has
-    ROLES ||--o{ USER_ROLES : assigned_to
-    ROLES ||--o{ ROLE_PERMISSIONS : has
-
-
-  varchar owner_id
-        varchar file_url
-    }
-
-    NOTIFICATIONS {
-        char36 id PK
-        char36 user_id FK
-        varchar type
-        json metadata
-    }
-
-    AUDIT_LOG {
-        bigint id PK
-        varchar table_name
-        varchar record_id
+```mermaid  varchar record_id
         enum action
         json old_data
         json new_data
