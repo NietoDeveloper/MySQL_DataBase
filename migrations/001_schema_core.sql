@@ -15,10 +15,7 @@ CREATE TABLE IF NOT EXISTS users (
 -- utf8mb4_0900_ai_ci is accent- and case-insensitive, so `email` and
 -- `username` behave like Postgres CITEXT without extra plumbing.
 
-CREATE INDEX idx_users_deleted_at ON users (deleted_at);
-CREATE INDEX idx_users_is_active  ON users (is_active, deleted_at);
-
-CREATE TABLE IF NOT EXISTS roles (
+CREATE INDEX idx_users_deleted_at ON users (deleted_at);S roles (
     id          SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name        VARCHAR(64) NOT NULL,
     description VARCHAR(255),
