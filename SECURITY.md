@@ -76,9 +76,7 @@ equivalent, and what still depends on you / your deployment environment.
 ## What you still need to do
 
 - **Never commit real credentials.** `.env.example` ships with empty
-  passwords on purpose — generate strong ones (`openssl rand -base64 32`)
-  per environment and keep `.env` out of version control (already in
-uire TLS in any non-local environment.** Add
+  passwords on purpose — generate strong ones LS in any non-local environment.** Add
   `--ssl-mode=REQUIRED` (or `VERIFY_IDENTITY` his document.
 nsider enabling the `validate_password` component** on the server
   for any environment that allows password-based account creation
