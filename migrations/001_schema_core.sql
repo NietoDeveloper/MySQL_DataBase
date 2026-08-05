@@ -8,5 +8,3 @@ CREATE TABLE IF NOT EXISTS users (
     is_active             BOOLEAN NOT NULL DEFAULT TRUE,
     last_login_at         DATETIME NULL,
     CONSTRAINT uq_users_email    UNIQUE (email),
- -- do not rely on this instead of application-level validation).
-    CONSTRAINT chk_users_email_format
