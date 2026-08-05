@@ -13,10 +13,7 @@ CREATE TABLE IF NOT EXISTS users (
         CHECK (email REGEXP '^[^@[:space:]]+@[^@[:space:]]+\\.[^@[:space:]]+$'),
   -- Rejects empty/placeholder hashes; does not validate the hashing
 -- utf8mb4_0900_ai_ci is accent- and case-insensitive, so `email` and
--- `username` behave like Postgres CITEXT without extra plumbing.
-
-CREATE INDEX idx_users_deleted_at ON users (deleted_at);S roles (
-    id          SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+-- `username` behave like Postgres CITEXT without extra plumbing.       SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     name        VARCHAR(64) NOT NULL,
     description VARCHAR(255),
     created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
